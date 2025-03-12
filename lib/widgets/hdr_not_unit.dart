@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:safrenz_app/common/my_colors.dart';
+import 'package:safrenz/common/my_colors.dart';
 
 class Hdrnotunit extends StatefulWidget {
   const Hdrnotunit({Key? key}) : super(key: key);

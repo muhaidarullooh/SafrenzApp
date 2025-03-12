@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:safrenz_app/widgets/device_akses.dart';
-import 'package:safrenz_app/widgets/infofeature.dart';
-import 'package:safrenz_app/widgets/menu_payment.dart';
+import 'package:safrenz/widgets/device_akses.dart';
+import 'package:safrenz/widgets/infofeature.dart';
+import 'package:safrenz/widgets/menu_payment.dart';
 
 import '../common/my_colors.dart';
 

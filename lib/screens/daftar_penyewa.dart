@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/screens/requestkode.dart';
+import 'package:safrenz/screens/requestkode.dart';
 import 'package:flutter_svg/svg.dart';
 
 class daftar extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/screens/onboarding.dart';
+import 'package:safrenz/screens/onboarding.dart';
 
 import 'screens/screens.dart';
 

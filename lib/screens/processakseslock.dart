@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/common/my_colors.dart';
-import 'package:safrenz_app/widgets/log_activity_device.dart';
+import 'package:safrenz/common/my_colors.dart';
+import 'package:safrenz/widgets/log_activity_device.dart';
 import '../widgets/s_r_icon_icons.dart';
 
 class processakseslock extends StatefulWidget {

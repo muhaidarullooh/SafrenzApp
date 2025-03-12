@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:safrenz_app/widgets/s_r_icon_icons.dart';
+import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
 import '../common/my_colors.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/widgets/custom_clipper.dart';
+import 'package:safrenz/widgets/custom_clipper.dart';
 
 class setting_company extends StatefulWidget {
   const setting_company({Key? key}) : super(key: key);

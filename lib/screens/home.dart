@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/common/my_colors.dart';
-import 'package:safrenz_app/widgets/header_home.dart';
-import 'package:safrenz_app/widgets/header_account.dart.dart';
-import 'package:safrenz_app/widgets/main_menu_akseskunci.dart';
-import 'package:safrenz_app/widgets/main_menu_logactivity.dart';
-import 'package:safrenz_app/widgets/main_menu_fitur_lainnya.dart';
+import 'package:safrenz/common/my_colors.dart';
+import 'package:safrenz/widgets/header_home.dart';
+import 'package:safrenz/widgets/header_account.dart.dart';
+import 'package:safrenz/widgets/main_menu_akseskunci.dart';
+import 'package:safrenz/widgets/main_menu_logactivity.dart';
+import 'package:safrenz/widgets/main_menu_fitur_lainnya.dart';
 import 'package:flutter_svg/flutter_svg.dart'; // Menggunakan flutter_svg package
 
 import '../widgets/header_account.dart';

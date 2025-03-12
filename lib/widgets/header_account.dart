@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/widgets/hdr_profile_account.dart';
-import 'package:safrenz_app/widgets/hdr_unit_account.dart';
+import 'package:safrenz/widgets/hdr_profile_account.dart';
+import 'package:safrenz/widgets/hdr_unit_account.dart';
 
 import 'hdr_profile.dart';
 import 'hdr_unit.dart';

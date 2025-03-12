@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/common/my_colors.dart';
-import 'package:safrenz_app/screens/home.dart';
-import 'package:safrenz_app/screens/nav_screen.dart';
+import 'package:safrenz/common/my_colors.dart';
+import 'package:safrenz/screens/home.dart';
+import 'package:safrenz/screens/nav_screen.dart';
 
 class requestkode extends StatefulWidget {
   const requestkode({Key? key}) : super(key: key);

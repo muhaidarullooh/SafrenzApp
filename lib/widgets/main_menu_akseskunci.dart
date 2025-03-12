@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:safrenz_app/widgets/device_akses.dart';
-import 'package:safrenz_app/widgets/infofeature.dart';
+import 'package:safrenz/widgets/device_akses.dart';
+import 'package:safrenz/widgets/infofeature.dart';
 
 class menuakseskunci extends StatefulWidget {
   const menuakseskunci({Key? key}) : super(key: key);

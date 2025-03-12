@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:safrenz_app/screens/setting_company.dart';
-import 'package:safrenz_app/widgets/s_r_icon_icons.dart';
+import 'package:safrenz/screens/setting_company.dart';
+import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
 class MenuAccount extends StatefulWidget {
   const MenuAccount({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/screens/daftar_penyewa.dart';
-import 'package:safrenz_app/screens/nav_screen.dart';
+import 'package:safrenz/screens/daftar_penyewa.dart';
+import 'package:safrenz/screens/nav_screen.dart';
 
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);

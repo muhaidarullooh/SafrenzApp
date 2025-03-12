@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/common/my_colors.dart';
-import 'package:safrenz_app/widgets/header_account.dart';
-import 'package:safrenz_app/widgets/menu_account.dart';
+import 'package:safrenz/common/my_colors.dart';
+import 'package:safrenz/widgets/header_account.dart';
+import 'package:safrenz/widgets/menu_account.dart';
 
 class Account extends StatefulWidget {
   const Account({Key? key}) : super(key: key);

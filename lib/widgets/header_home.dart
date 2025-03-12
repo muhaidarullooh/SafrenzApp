@@ -1,9 +1,9 @@
 // import 'dart:html';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
-import 'package:safrenz_app/common/my_colors.dart';
-import 'package:safrenz_app/widgets/hdr_unit.dart';
-import 'package:safrenz_app/widgets/hdr_profile.dart';
+import 'package:safrenz/common/my_colors.dart';
+import 'package:safrenz/widgets/hdr_unit.dart';
+import 'package:safrenz/widgets/hdr_profile.dart';
 
 class Header_home extends StatefulWidget {
   const Header_home({Key? key}) : super(key: key);

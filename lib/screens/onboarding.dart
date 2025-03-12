@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:safrenz_app/widgets/main_menu_pemilik.dart';
-import 'package:safrenz_app/widgets/main_menu_penyewa.dart';
-import 'package:safrenz_app/widgets/oval_top_border_clipper.dart';
+import 'package:safrenz/widgets/main_menu_pemilik.dart';
+import 'package:safrenz/widgets/main_menu_penyewa.dart';
+import 'package:safrenz/widgets/oval_top_border_clipper.dart';
 
 import '../common/my_colors.dart';
 import 'home.dart';
