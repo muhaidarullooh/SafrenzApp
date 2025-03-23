@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:safrenz/screens/daftar_sebagai.dart';
 import 'package:safrenz/screens/navigation/nav_screen_tenant.dart';
-import 'package:safrenz/widgets/main_menu_pemilik.dart';
-import 'package:safrenz/widgets/main_menu_penyewa.dart';
-import 'package:safrenz/widgets/oval_top_border_clipper.dart';
 
 import '../common/my_colors.dart';
 import '../common/my_style.dart';
 import '../widgets/components/buttons.dart';
 import '../widgets/s_r_icon_icons.dart';
-import 'daftar.dart';
-import 'home/home_tenant.dart';
 import 'navigation/nav_screen_owner.dart';
 
 class CheckIn extends StatefulWidget {
-  const CheckIn({Key? key}) : super(key: key);
+  const CheckIn({super.key});
 
   @override
   State<CheckIn> createState() => _CheckInState();

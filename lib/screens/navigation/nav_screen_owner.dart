@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz/screens/account/tenant/account.dart';
 import 'screens_owner.dart';
 import 'package:safrenz/widgets/s_r_icon_icons.dart';
-import 'package:safrenz/screens/komunikasi.dart';
-import 'package:safrenz/screens/home/home_owner.dart';
 
 class NavScreenOwner extends StatefulWidget {
-  const NavScreenOwner({Key? key}) : super(key: key);
+  const NavScreenOwner({super.key});
 
   @override
   State<NavScreenOwner> createState() => _NavScreenState();

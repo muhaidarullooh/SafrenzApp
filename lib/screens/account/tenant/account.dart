@@ -6,7 +6,7 @@ import '../../../widgets/account/tenant/header_account.dart';
 import '../../../widgets/account/tenant/header_unit_account.dart';
 
 class Account extends StatefulWidget {
-  const Account({Key? key}) : super(key: key);
+  const Account({super.key});
 
   @override
   State<Account> createState() => _AccountState();

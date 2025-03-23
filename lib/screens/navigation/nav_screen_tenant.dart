@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz/screens/account/tenant/account.dart';
 import 'screens_tenant.dart';
 import 'package:safrenz/widgets/s_r_icon_icons.dart';
-import 'package:safrenz/screens/komunikasi.dart';
-import 'package:safrenz/screens/home/home_tenant.dart';
 
 class NavScreenTenant extends StatefulWidget {
   const NavScreenTenant({super.key});
