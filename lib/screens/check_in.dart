@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:safrenz/screens/daftar_sebagai.dart';
+import 'package:safrenz/screens/navigation/nav_screen_tenant.dart';
 import 'package:safrenz/widgets/main_menu_pemilik.dart';
 import 'package:safrenz/widgets/main_menu_penyewa.dart';
 import 'package:safrenz/widgets/oval_top_border_clipper.dart';
@@ -8,16 +9,18 @@ import 'package:safrenz/widgets/oval_top_border_clipper.dart';
 import '../common/my_colors.dart';
 import '../common/my_style.dart';
 import '../widgets/components/buttons.dart';
+import '../widgets/s_r_icon_icons.dart';
 import 'daftar.dart';
 import 'home/home_tenant.dart';
+import 'navigation/nav_screen_owner.dart';
 
-class onboarding extends StatefulWidget {
-  const onboarding({Key? key}) : super(key: key);
+class CheckIn extends StatefulWidget {
+  const CheckIn({Key? key}) : super(key: key);
 
   @override
-  State<onboarding> createState() => _onboardingState();
+  State<CheckIn> createState() => _CheckInState();
 }
-class _onboardingState extends State<onboarding> {
+class _CheckInState extends State<CheckIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,28 +28,9 @@ class _onboardingState extends State<onboarding> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: MyColors.white,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 100,
-                        child: SvgPicture.asset('assets/images/logosafrenz.svg'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        leading: const BackButton(
+          color: Colors.black,
         ),
       ),
       body: Column(
@@ -70,7 +54,7 @@ class _onboardingState extends State<onboarding> {
                                 height: 200,
                                 width: 200,
                                 child: Image.asset(
-                                    'assets/images/onb1.png'),
+                                    'assets/images/imagerequest.png'),
                               ),
                             ],
                           ),
@@ -85,7 +69,7 @@ class _onboardingState extends State<onboarding> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Kelola unit anda sesuai dengan kebutuhan dengan mudah',
+                        'Scan QR Code atau masukkan kode unit dari pemilik untuk check-In',
                         style: body1Style.copyWith(color: MyColors.blackText),
                         textAlign: TextAlign.center,
                       ),
@@ -101,39 +85,73 @@ class _onboardingState extends State<onboarding> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            BoxButton.outline(
-              title:'Masuk atau daftar dengan Google',
-              leading: SvgPicture.asset(
-                'assets/images/ic_google.svg',
-                width: 24,
-                height: 24,
+            BoxButton(
+              leading: Icon(
+                SRIcon.scan,
+                color: MyColors.white,
               ),
+              title:'Scan QR Code',
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => daftarsebagai()),
+                  MaterialPageRoute(builder: (context) => NavScreenTenant()),
                 );
               },
             ),
             const SizedBox(
               height: 24,
             ),
-            BoxButton(
-              title:'Masuk atau daftar dengan Apple ID',
-              leading: SvgPicture.asset(
-                'assets/images/ic_apple.svg',
-                width: 24,
-                height: 24,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 1,
+                  width: 140,
+                  color: MyColors.softGrey,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'Atau',
+                  style: body1Style.copyWith(color: MyColors.blackText),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Container(
+                  height: 1,
+                  width: 140,
+                  color: MyColors.softGrey,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            BoxButton.outline(
+              title:'Masukkan kode',
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => daftarsebagai()),
+                  MaterialPageRoute(builder: (context) => NavScreenOwner()),
                 );
               },
             ),
             const SizedBox(
-              height: 36,
+              height: 24,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NavScreenTenant()),
+                );
+              },
+              child: Text(
+                'Ke Halaman Beranda',
+                style: body1Style.copyWith(color: MyColors.blackText),
+              ),
             ),
           ],
         ),

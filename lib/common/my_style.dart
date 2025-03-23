@@ -1,29 +1,49 @@
-import 'package:flutter/material.dart';
-import 'package:safrenz/common/my_colors.dart';
+import 'package:flutter/cupertino.dart';
 
-import 'my_font_size.dart';
+// Text Styles
 
-class MyStyle {
-  static TextStyle textButtonBlack = TextStyle(
-    color: MyColors.blackText,
-    fontSize: MyFontSize.medium2,
-    fontWeight: FontWeight.bold
-  );
+// To make it clear which weight we are using, we'll define the weight even for regular
+// fonts
+const TextStyle heading1Style = TextStyle(
+  fontSize: 48,
+  fontWeight: FontWeight.w400,
+);
 
-  static TextStyle textButtonWhite = TextStyle(
-    color: MyColors.white,
-    fontSize: MyFontSize.medium2,
-    fontWeight: FontWeight.bold
-  );
+const TextStyle heading2Style = TextStyle(
+  fontSize: 34,
+  fontWeight: FontWeight.w600,
+);
 
-  static TextStyle textTitleBlack = TextStyle(
-    color: MyColors.blackText,
-    fontSize: MyFontSize.large2,
-    fontWeight: FontWeight.bold
-  );
+const TextStyle heading3Style = TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.w600,
+);
 
-  static TextStyle textParagraphBlack = TextStyle(
-    color: MyColors.blackSoftText,
-    fontSize: MyFontSize.medium2,
-  );
-}
+const TextStyle Subtitle1Style = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.w700,
+);
+const TextStyle Subtitle2Style = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+);
+
+const TextStyle body1Style = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+);
+
+const TextStyle body2Style = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+);
+
+const TextStyle captionStyle = TextStyle(
+  fontSize: 12,
+  fontWeight: FontWeight.w400,
+);
+
+const TextStyle OverlineStyle = TextStyle(
+  fontSize: 10,
+  fontWeight: FontWeight.w400,
+);

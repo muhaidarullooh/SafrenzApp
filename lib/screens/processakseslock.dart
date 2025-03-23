@@ -1,17 +1,43 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:safrenz/common/my_colors.dart';
 import 'package:safrenz/widgets/log_activity_device.dart';
 import '../widgets/s_r_icon_icons.dart';
 
-class processakseslock extends StatefulWidget {
-  const processakseslock({Key? key}) : super(key: key);
+class ProcessAksesLock extends StatefulWidget {
+  const ProcessAksesLock({Key? key}) : super(key: key);
 
   @override
-  State<processakseslock> createState() => _processakseslockState();
+  State<ProcessAksesLock> createState() => _ProcessAksesLockState();
 }
 
-class _processakseslockState extends State<processakseslock> {
-  int? _value = 1;
+class _ProcessAksesLockState extends State<ProcessAksesLock> {
+  int _seconds = 30;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (_seconds > 0) {
+        setState(() {
+          _seconds--;
+        });
+      } else {
+        _timer.cancel();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,158 +45,114 @@ class _processakseslockState extends State<processakseslock> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        leading: const BackButton(
-          color: Colors.black,
-        ),
+        backgroundColor: Colors.white,
+        leading: const BackButton(color: Colors.black),
       ),
-      body: Stack(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              children: <Widget>[
-
-                Container(
-                  // margin: EdgeInsets.fromLTRB(0, 0, 0, 16),
-                  // height: 150,
-                  // width: 340,
-                  decoration: BoxDecoration(
-                    color: MyColors.backcolor,
-                    borderRadius: BorderRadius.circular(24),
-                    border: Border.all(
-                      color: MyColors.softGrey,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        child: ListView(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: MyColors.white,
+                borderRadius: BorderRadius.circular(24),
+                border: Border.all(color: MyColors.softGrey),
+                image: const DecorationImage(
+                  image: AssetImage("assets/images/imgback.png"),
+                  fit: BoxFit.cover,
+                  opacity: 200,
+                  alignment: Alignment.topCenter,
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(color: const Color(0xFFEDEDED)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/images/imagedevicelock.png',
+                            width: 200,
+                            height: 200,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 48,
+                    const SizedBox(height: 16),
+                    Text(
+                      'Pintu Kamar',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: MyColors.blackText,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                              color: const Color(0xFFEDEDED),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-                              child: Image.asset(
-                                'assets/images/imagedevicelock.png',
-                                width: 200,
-                                height: 200,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
+                        Icon(SRIcon.battery, color: MyColors.green, size: 24),
+                        const SizedBox(width: 4),
+                        Text(
+                          '100%',
+                          style: TextStyle(
+                            color: MyColors.green,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
                           ),
                         ),
-                       Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 8),
-                          child: Text(
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.0,
-                            'Pintu Kamar',
-                            style: TextStyle(
-                                color: MyColors.blackText,
-                                fontWeight: FontWeight.bold, fontSize: 16),
-                          ),
-                        ),
-
-                        Container(
-                          width: 80,
-                          decoration: BoxDecoration(
-                            color: MyColors.softGreen,
-                            borderRadius: BorderRadius.circular(500),
-                          ),
-                          child: Padding(
-                            padding:
-                            const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                            child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  child: Icon(
-                                    SRIcon.battery,
-                                    color: MyColors.green,
-                                    size: 18,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Text(
-                                  textScaleFactor: 1.0,
-                                  '100%',
-                                  style: TextStyle(
-                                      color: MyColors.green,
-                                      fontWeight: FontWeight.bold, fontSize: 12),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 8),
-                          child: Text(
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.0,
-                            '00:30',
-                            style: TextStyle(
-                                color: MyColors.blackText,
-                                fontWeight: FontWeight.bold, fontSize: 36),
-                          ),
-                        ),
-
-
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 8),
-                          child: Text(
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.0,
-                            'Masukan kode di bawah untuk proses membuka pintu',
-                            style: TextStyle(
-                                color: MyColors.blackText,
-                                fontWeight: FontWeight.bold, fontSize: 16),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 8),
-                          child: Text(
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.0,
-                            '009#',
-                            style: TextStyle(
-                                color: MyColors.green,
-                                fontWeight: FontWeight.bold, fontSize: 24),
-                          ),
-                        ),
-
                       ],
                     ),
-                  ),
+                    const SizedBox(height: 16),
+                    Text(
+                      '${_seconds ~/ 60}:${(_seconds % 60).toString().padLeft(2, '0')}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: MyColors.blackText,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 36,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Masukan kode di bawah untuk proses membuka pintu',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: MyColors.blackText,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      '009#',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: MyColors.green,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 36,
+                      ),
+                    ),
+                  ],
                 ),
-
-
-
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

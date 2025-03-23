@@ -1,128 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:safrenz/screens/daftar_penyewa.dart';
-import 'package:safrenz/screens/home.dart';
 
 import '../common/my_colors.dart';
+import '../common/my_style.dart';
+import '../screens/daftar.dart';
 
-class mainmenupenyewa extends StatelessWidget {
-  const mainmenupenyewa({Key? key}) : super(key: key);
+class MainMenuPenyewa extends StatelessWidget {
+  const MainMenuPenyewa({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent,
-      // height: 150,
-      child: Stack(
-        // scrollDirection: Axis.horizontal,
-        // clipBehavior: Clip.none,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: MyColors.backcolor,
-              borderRadius: BorderRadius.circular(24),
-              border: Border.all(
-                color: MyColors.softGrey,
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                // crossAxisAlignment: CrossAxisAlignment.start,
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: MyColors.softGrey),
+      ),
+      color: MyColors.backcolor,
+      elevation: 0, // Tambahkan shadow jika ingin efek floating
+      child: InkWell(
+        borderRadius: BorderRadius.circular(24),
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => daftar()));
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
                 children: [
-                  TextButton(
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            // horizontal: 16,
-                            // vertical: 16,
-                            ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      height: 48,
-                                      child:
-                                          Image.asset('assets/images/onb1.png'),
-                                    ),
-                                    const SizedBox(
-                                      width: 16,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const Text(
-                                          textAlign: TextAlign.start,
-                                          'Penyewa',
-                                          style: TextStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16),
-                                        ),
-                                        const SizedBox(
-                                          height: 8,
-                                        ),
-                                        Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            SizedBox(
-                                              child: SvgPicture.asset(
-                                                  'assets/images/ic_google.svg'),
-                                            ),
-                                            const SizedBox(
-                                              width: 8,
-                                            ),
-                                            const Text(
-                                              textAlign: TextAlign.start,
-                                              'Masuk / daftar dengan Google',
-                                              style: TextStyle(
-                                                  color:
-                                                  Color.fromARGB(255, 0, 0, 0),
-                                                  fontSize: 12),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      child: SvgPicture.asset(
-                                          'assets/images/iconarrowright.svg'),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                  SizedBox(
+                    height: 48,
+                    child: Image.asset('assets/images/onb1.png'),
+                  ),
+                  const SizedBox(width: 16),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Penyewa',
+                        style: body1Style.copyWith(color: MyColors.blackText),
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => daftar()));
-                    },
+                      Text(
+                        'Sewa unit, pembayaran',
+                        style: captionStyle.copyWith(color: MyColors.blackText),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ),
+              SvgPicture.asset('assets/images/iconarrowright.svg'),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

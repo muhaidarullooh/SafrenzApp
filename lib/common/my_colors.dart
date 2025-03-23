@@ -10,7 +10,10 @@ class MyColors {
   static Color surface2       = Color(0xFF3A354B);
   static Color red            = Color(0xFFE9001E);
   static Color green          = Color(0xFF4BC562);
-  static Color softGrey       = Color(0xFFEDEDED);
+  static Color yellow         = Color(0xFFFFB000);
+  static Color softGrey       = Color(0xFFF3F3F3);
   static Color grey           = Color(0xFFBBBBBB);
   static Color softGreen      = Color(0xFFE9FFEA);
+  static Color blue           = Color(0xFF1976D2);
+
 }

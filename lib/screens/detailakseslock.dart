@@ -2,66 +2,192 @@ import 'package:flutter/material.dart';
 import 'package:safrenz/common/my_colors.dart';
 import 'package:safrenz/screens/processakseslock.dart';
 import 'package:safrenz/widgets/log_activity_device.dart';
+import '../common/my_style.dart';
+import '../widgets/components/buttons.dart';
 import '../widgets/s_r_icon_icons.dart';
+import 'dart:math' as math;
 
-class detailakseslock extends StatefulWidget {
-  const detailakseslock({Key? key}) : super(key: key);
+class SliderButton extends StatefulWidget {
+  final String label;
+  final Function onPressed;
+  final double width;
+  final double height;
+
+  SliderButton({
+    required this.label,
+    required this.onPressed,
+    this.width = 351,
+    this.height = 60,
+  });
 
   @override
-  State<detailakseslock> createState() => _detailakseslockState();
+  _SliderButtonState createState() => _SliderButtonState();
 }
 
-class _detailakseslockState extends State<detailakseslock> {
-  int? _value = 1;
+class _SliderButtonState extends State<SliderButton> with SingleTickerProviderStateMixin {
+  double _dragPosition = 0.0;
+  bool _isCompleted = false;
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: Duration(seconds: 2),
+      vsync: this,
+    )..repeat(reverse: true);
+
+    _animation = Tween<double>(begin: 0.0, end: 2.0).animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onHorizontalDragUpdate(DragUpdateDetails details) {
+    setState(() {
+      _dragPosition = details.localPosition.dx;
+      if (_dragPosition >= widget.width - widget.height) {
+        _dragPosition = widget.width - widget.height;
+      }
+    });
+  }
+
+  void _onHorizontalDragEnd(DragEndDetails details) {
+    if (_dragPosition >= widget.width - widget.height) {
+      setState(() {
+        _isCompleted = true;
+      });
+      widget.onPressed();
+    } else {
+      setState(() {
+        _dragPosition = 0.0;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        leading: const BackButton(
-          color: Colors.black,
+    return GestureDetector(
+      onHorizontalDragUpdate: _onHorizontalDragUpdate,
+      onHorizontalDragEnd: _onHorizontalDragEnd,
+      child: Container(
+        width: widget.width,
+        height: widget.height,
+        decoration: BoxDecoration(
+          color: MyColors.primary,
+          borderRadius: BorderRadius.circular(50),
         ),
-        // title: Text(
-        //   'How to Flutter',
-        //   style: TextStyle(
-        //       color: Color.fromARGB(255, 0, 0, 0),
-        //       fontSize: 16,
-        //       fontWeight: FontWeight.bold),
-        // ),
+        child: Stack(
+          children: [
+            AnimatedPositioned(
+              duration: Duration(milliseconds: 100),
+              left: _dragPosition,
+              child: Container(
+                width: widget.height,
+                height: widget.height,
+                decoration: BoxDecoration(
+                  color: _isCompleted ? MyColors.green : MyColors.white,
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(
+                    color: _isCompleted ? MyColors.primary : MyColors.primary,
+                    width: 4,
+                  ),
+                ),
+                child: Center(
+                  child: Icon(
+                    _isCompleted ? Icons.check : Icons.arrow_forward,
+                    color: MyColors.primary,
+                  ),
+                ),
+              ),
+            ),
+            Center(
+              child: AnimatedBuilder(
+                animation: _animation,
+                builder: (context, child) {
+                  return ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return LinearGradient(
+                        colors: [
+                          Colors.white.withOpacity(0.5),
+                          Colors.white.withOpacity(1),
+                          Colors.white.withOpacity(0.5)
+                        ],
+                        stops: [0.1, _animation.value, 0.9],
+                        tileMode: TileMode.mirror,
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        transform: GradientRotation(math.pi / 4),
+                      ).createShader(bounds);
+                    },
+                    child: Text(
+                      widget.label,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
-      body: Stack(
-        children: <Widget>[
-          Padding(
+    );
+  }
+}
+
+
+
+
+class DetailAksesLock extends StatelessWidget {
+  const DetailAksesLock({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        // Konten utama Bottom Sheet
+        Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            backgroundColor: Colors.white,
+            actions: [
+              IconButton(
+                icon: Icon(Icons.close, color: Colors.black),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          ),
+          body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: ListView(
-              scrollDirection: Axis.vertical,
               children: <Widget>[
-
                 Container(
-                  // margin: EdgeInsets.fromLTRB(0, 0, 0, 16),
-                  // height: 150,
-                  // width: 340,
                   decoration: BoxDecoration(
-                    color: MyColors.backcolor,
+                    color: MyColors.white,
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(
-                      color: MyColors.softGrey,
+                    border: Border.all(color: MyColors.softGrey),
+                    image: const DecorationImage(
+                      image: AssetImage("assets/images/imgback.png"),
+                      fit: BoxFit.cover,
+                      opacity: 200,
+                      alignment: Alignment.topCenter,
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 16,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.center, // Menambahkan alignment vertikal ke tengah
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -71,9 +197,6 @@ class _detailakseslockState extends State<detailakseslock> {
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(50),
-                                border: Border.all(
-                                  color: const Color(0xFFEDEDED),
-                                ),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(10),
@@ -88,230 +211,114 @@ class _detailakseslockState extends State<detailakseslock> {
                                 ),
                               ),
                             ),
-
-                            Container(
-                              decoration: BoxDecoration(
-                                color: MyColors.green,
-                                borderRadius: BorderRadius.circular(500),
-                              ),
-                              child: Padding(
-                                padding:
-                                const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      textScaleFactor: 1.0,
-                                      'ON',
-                                      style: TextStyle(
-                                          color: MyColors.white,
-                                          fontWeight: FontWeight.bold, fontSize: 14),
-                                    ),
-                                  ],
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start, // Menyelaraskan elemen di dalam row ke tengah
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                  decoration: BoxDecoration(
+                                    color: MyColors.green,
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  child: Text(
+                                    'ON',
+                                    style: body1Style.copyWith(color: MyColors.white, fontWeight: FontWeight.bold,),
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
                           ],
-
                         ),
-
-
-
-                        const SizedBox(height: 20),
-
-
-
+                        const SizedBox(height: 8),
                         Row(
-                          mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-                                    child: Text(
-                                      textScaleFactor: 1.0,
-                                      'Pintu Kamar',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold, fontSize: 16),
-                                    ),
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                                  child: Text(
+                                    'Pintu Kamar',
+                                    style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
                                   ),
-
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: MyColors.softGreen,
-                                      borderRadius: BorderRadius.circular(500),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(SRIcon.battery, color: MyColors.green, size: 18),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      '100%',
+                                      style: body2Style.copyWith(color: MyColors.green, fontWeight: FontWeight.bold,),
                                     ),
-                                    child: Padding(
-                                      padding:
-                                      const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          SizedBox(
-                                            child: Icon(
-                                              SRIcon.battery,
-                                              color: MyColors.green,
-                                              size: 18,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            width: 4,
-                                          ),
-                                          Text(
-                                            textScaleFactor: 1.0,
-                                            '100%',
-                                            style: TextStyle(
-                                                color: MyColors.green,
-                                                fontWeight: FontWeight.bold, fontSize: 14),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-
                                   ],
+                                ),
+                              ],
                             ),
-
-
                             Container(
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: MyColors.white,
                                 borderRadius: BorderRadius.circular(16),
-                                border: Border.all(
-                                  color: MyColors.softGrey,
-                                ),
+                                border: Border.all(color: MyColors.softGrey),
                               ),
                               child: Padding(
-                                padding:
-                                const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
-                                child: Column(
-                                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    TextButton(
-                                      child: Column(
-                                        // mainAxisAlignment:
-                                        // MainAxisAlignment.spaceAround,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          const SizedBox(
-                                            child: Icon(
-                                              SRIcon.pin,
-                                              color: Colors.black,
-                                              size: 24,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 4,
-                                          ),
-                                          Text(
-                                            textAlign: TextAlign.center,
-                                            'PIN',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: MyColors.blackText,
-                                                fontSize: 14),
-                                          ),
-                                        ],
+                                padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+                                child: TextButton(
+                                  onPressed: () {},
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      const Icon(SRIcon.pin, color: Colors.black, size: 24),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        'PIN',
+                                        style: TextStyle(fontWeight: FontWeight.bold, color: MyColors.blackText, fontSize: 14),
                                       ),
-                                      onPressed: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder: (context) => detailattd()));
-                                      },
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ],
-
                         ),
-
+                        const SizedBox(height: 16),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              LogActivityDevice(),
+                              LogActivityDevice(),
+                              LogActivityDevice(),
+                              LogActivityDevice(),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
-
-                const Column(
-                  children: [
-
-                    SingleChildScrollView(
-
-                      scrollDirection: Axis.horizontal,
-
-                      child: Row(
-
-                        children: [
-
-                          log_activity_device(),
-                          log_activity_device(),
-                          log_activity_device(),
-                          log_activity_device(),
-
-                        ],
-
-                      ),
-
-                    ),
-
-                  ],
-                )
-
               ],
             ),
           ),
-        ],
-        // bottomNavigationBar: CustomNavigationBar(),
-        // bottomNavigationBar: BottomNavigationBar(items: []),
-
-        // ===================== BODY ========================== //
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 255, 255, 255),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        padding: const EdgeInsets.all(16.0),
-        child: TextButton(
-          style: ButtonStyle(
-              backgroundColor:
-              MaterialStateProperty.all<Color>(
-                  MyColors.primary),
-              shape: MaterialStateProperty.all<
-                  RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                      borderRadius:
-                      BorderRadius.circular(50.0),
-                      side: BorderSide(color: MyColors.primary)))),
-          onPressed: () {
-
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => processakseslock()));
-          },
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: const Text(
-              '    Lanjutkan    ',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
+          bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+              color: MyColors.white,
+            ),
+            padding: EdgeInsets.all(16.0),
+            child: SliderButton(
+              label: 'Geser untuk buka kunci',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProcessAksesLock()),
+                );
+              },
             ),
           ),
         ),
-
-      ),
+      ],
     );
+
   }
 }

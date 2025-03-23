@@ -1,120 +1,81 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:safrenz/common/my_colors.dart';
+import 'package:safrenz/common/my_style.dart';
 import 'package:safrenz/screens/detailakseslock.dart';
-import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
-
-
-class log_activity_device extends StatefulWidget {
-  const log_activity_device({Key? key}) : super(key: key);
+class LogActivityDevice extends StatefulWidget {
+  const LogActivityDevice({super.key});
 
   @override
-  State<log_activity_device> createState() => log_activity_deviceState();
+  State<LogActivityDevice> createState() => LogActivityDeviceState();
 }
 
-class log_activity_deviceState extends State<log_activity_device> {
-
+class LogActivityDeviceState extends State<LogActivityDevice> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 16, 16, 0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: MyColors.backcolor,
-          borderRadius: BorderRadius.circular(50),
-          border: Border.all(
-            color: MyColors.softGrey,
-          ),
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      child: Card(
+        elevation: 0, // Menambahkan bayangan di bawah card
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50), // Sudut yang lebih bulat
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 8,
-            vertical: 0,
-          ),
-          child: TextButton(
+        color: MyColors.white,
+        child: InkWell(
+          // borderRadius: BorderRadius.circular(16), // Efek klik dengan borderRadius yang sama
+          // onTap: () {
+          //   // Navigator.push(
+          //   //   context,
+          //   //   MaterialPageRoute(
+          //   //     builder: (context) => const DetailAksesLock(),
+          //   //   ),
+          //   // );
+          // },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 6,
+            ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 36,
-                      width: 36,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(50),
-                        border: Border.all(
-                          color: const Color(0xFFEDEDED),
-                        ),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          'assets/images/avatar.png',
-                          // width: 60,
-                          // height: 60,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
+                Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(
+                      color: const Color(0xFFEDEDED),
                     ),
-                  ],
-
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'assets/images/avatar.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
-
-
-
-                const SizedBox(width: 8),
-
-
-
-                const Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                const SizedBox(width: 12),
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 2),
-                      child: Text(
-                        textScaleFactor: 1.0,
-                        'Jhondoe',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
+                    Text(
+                      'Jhondoe....',
+                      style: captionStyle.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
                     ),
-
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      child: Text(
-                        textScaleFactor: 1.0,
-                        '18:00',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold, fontSize: 12),
-                      ),
+                    SizedBox(height: 2),
+                    Text(
+                      '18:00',
+                      style: OverlineStyle.copyWith(color: MyColors.blackText,),
                     ),
-
-
-
                   ],
-
                 ),
-
               ],
             ),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => detailakseslock()));
-            },
           ),
-
         ),
       ),
     );

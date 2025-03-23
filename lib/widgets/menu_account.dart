@@ -1,390 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:safrenz/screens/setting_company.dart';
 import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
+import '../common/my_colors.dart';
+
 class MenuAccount extends StatefulWidget {
-  const MenuAccount({Key? key}) : super(key: key);
+  const MenuAccount({super.key});
 
   @override
   State<MenuAccount> createState() => _MenuAccountState();
 }
 
 class _MenuAccountState extends State<MenuAccount> {
+  void _onMenuItemTap(String title) {
+    // Handle menu item click here
+    print('Clicked on: $title');
+  }
+
+  final List<Map<String, dynamic>> menuItems = [
+    {'icon': SRIcon.pin, 'title': 'Atur PIN Aplikasi', 'onTap': () {}},
+    {'icon': SRIcon.syaratketentuan, 'title': 'Syarat & Ketentuan', 'onTap': () {}},
+    {'icon': SRIcon.clipboard_text, 'title': 'Saran untuk pengembang', 'onTap': () {}},
+    {'icon': SRIcon.star, 'title': 'Beri Rating', 'onTap': () {}},
+    {'icon': SRIcon.logout, 'title': 'Logout', 'onTap': () {}},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(16, 16, 16, 24),
+      padding: const EdgeInsets.all(16),
       color: Colors.transparent,
-      // height: 150,
-      child: Stack(
-        // scrollDirection: Axis.horizontal,
-        // clipBehavior: Clip.none,
-        children: [
-          Container(
-            // height: 150,
-            // width: 340,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextButton(
-                    child: const SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            // horizontal: 16,
-                            // vertical: 16,
-                            ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 24,
-                                        SRIcon.pin,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 16,
-                                    ),
-                                    Text(
-                                      textScaleFactor: 1.0,
-                                      'Atur PIN Aplikasi',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(167, 0, 0, 0),
-                                          fontSize: 16),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 18,
-                                        Icons.arrow_forward_ios_rounded,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => setting_company()));
-                    },
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 13),
-                    child: Container(
-                      height: 1.0,
-                      // width: 130.0,
-                      color: Color.fromARGB(255, 238, 238, 238),
-                    ),
-                  ),
-                  TextButton(
-                    child: const SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          // horizontal: 16,
-                          // vertical: 16,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 24,
-                                        SRIcon.syaratketentuan,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 16,
-                                    ),
-                                    Text(
-                                      textScaleFactor: 1.0,
-                                      'Syarat & Ketentuan',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(167, 0, 0, 0),
-                                          fontSize: 16),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 18.0,
-                                        Icons.arrow_forward_ios_rounded,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => setting_company()));
-                    },
-                  ),
-                  Padding(
-                    padding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 13),
-                    child: Container(
-                      height: 1.0,
-                      // width: 130.0,
-                      color: Color.fromARGB(255, 238, 238, 238),
-                    ),
-                  ),
-                  TextButton(
-                    child: const SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          // horizontal: 16,
-                          // vertical: 16,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 24,
-                                        SRIcon.clipboard_text,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 16,
-                                    ),
-                                    Text(
-                                      textScaleFactor: 1.0,
-                                      'Saran untuk pengembang',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(167, 0, 0, 0),
-                                          fontSize: 16),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 18.0,
-                                        Icons.arrow_forward_ios_rounded,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => setting_company()));
-                    },
-                  ),
-                  Padding(
-                    padding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 13),
-                    child: Container(
-                      height: 1.0,
-                      // width: 130.0,
-                      color: Color.fromARGB(255, 238, 238, 238),
-                    ),
-                  ),
-                  TextButton(
-                    child: const SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          // horizontal: 16,
-                          // vertical: 16,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 24,
-                                        SRIcon.star,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 16,
-                                    ),
-                                    Text(
-                                      textScaleFactor: 1.0,
-                                      'Beri Rating',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(167, 0, 0, 0),
-                                          fontSize: 16),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 18.0,
-                                        Icons.arrow_forward_ios_rounded,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => setting_company()));
-                    },
-                  ),
-                  Padding(
-                    padding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 13),
-                    child: Container(
-                      height: 1.0,
-                      // width: 130.0,
-                      color: Color.fromARGB(255, 238, 238, 238),
-                    ),
-                  ),
-                  TextButton(
-                    child: const SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          // horizontal: 16,
-                          // vertical: 16,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 24,
-                                        SRIcon.logout,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 16,
-                                    ),
-                                    Text(
-                                      textScaleFactor: 1.0,
-                                      'Logout',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(167, 0, 0, 0),
-                                          fontSize: 16),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  // mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      child: Icon(
-                                        size: 18.0,
-                                        Icons.arrow_forward_ios_rounded,
-                                        color: Color.fromARGB(167, 0, 0, 0),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => setting_company()));
-                    },
-                  ),
-                ],
-              ),
-            ),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: ListView.separated(
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: menuItems.length,
+          separatorBuilder: (context, index) => Divider(
+            color: MyColors.softGrey,
+            thickness: 1,
+            indent: 16,
+            endIndent: 16,
           ),
-        ],
+          itemBuilder: (context, index) {
+            final item = menuItems[index];
+            return ListTile(
+              leading: Icon(item['icon'], size: 24, color: Colors.black54),
+              title: Text(
+                item['title'],
+                style: const TextStyle(fontSize: 16, color: Colors.black54),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios_rounded, size: 18, color: MyColors.grey,),
+              onTap: () => _onMenuItemTap(item['title']),
+            );
+          },
+        ),
       ),
     );
   }

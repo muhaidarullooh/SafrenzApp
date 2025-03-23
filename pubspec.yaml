@@ -120,4 +120,21 @@ flutter:
     - assets/images/ic_call.svg
     - assets/images/ic_dari.svg
     - assets/images/ic_google.svg
+    - assets/images/ic_apple.svg
     - assets/images/imagerequest.png
+    - assets/images/qr_code_image.png
+
+    - assets/images/succes_pay.svg
+    - assets/images/menunggu_pay.svg
+    - assets/images/info_pay.svg
+    - assets/images/filed_pay.svg
+    - assets/images/qris_logo.svg
+    - assets/images/gpn_logo.svg
+
+    - assets/images/menu_smartlock.svg
+    - assets/images/menu_tenant.svg
+    - assets/images/menu_lokasi.svg
+
+    - assets/images/img_1.png
+    - assets/images/img_2.png
+    - assets/images/img_3.png
