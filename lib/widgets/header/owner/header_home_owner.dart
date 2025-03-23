@@ -8,7 +8,7 @@ import 'package:safrenz/widgets/header/tenant/info_unit.dart';
 import 'package:safrenz/widgets/header/tenant/header_profile_tenant.dart';
 
 class HeaderHomeOwner extends StatefulWidget {
-  const HeaderHomeOwner({Key? key}) : super(key: key);
+  const HeaderHomeOwner({super.key});
 
   @override
   State<HeaderHomeOwner> createState() => _HeaderHomeOwnertate();
@@ -22,7 +22,7 @@ class _HeaderHomeOwnertate extends State<HeaderHomeOwner> {
         child: Container(
             decoration:  BoxDecoration(
             gradient: LinearGradient(
-            colors: [MyColors.grey.withOpacity(0.3), MyColors.white,],
+            colors: [MyColors.grey, MyColors.white,],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
             ),
