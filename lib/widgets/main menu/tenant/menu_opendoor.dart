@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:safrenz/widgets/main%20menu/tenant/device_akses.dart';
 
 class MenuOpendoor extends StatefulWidget {
-  const MenuOpendoor({Key? key}) : super(key: key);
+  const MenuOpendoor({super.key});
 
   @override
   State<MenuOpendoor> createState() => _MenuOpendoorState();
@@ -48,7 +47,6 @@ class _MenuOpendoorState extends State<MenuOpendoor> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          textScaleFactor: 1.0,
                           'Akses Buka Kunci',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
