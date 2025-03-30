@@ -39,7 +39,7 @@ class HeaderProfileTenant extends StatelessWidget {
                             style: body2Style.copyWith(color: MyColors.white, fontWeight: FontWeight.bold,),
                           ),
                           const SizedBox(
-                            height: 4,
+                            height: 2,
                           ),
                           Text(
                             'jondoe@gmail.com',

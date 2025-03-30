@@ -45,6 +45,17 @@ class BoxButton extends StatelessWidget {
         outline = false,
         small = true;
 
+  /// **Tambahan Constructor untuk Small Outline Button**
+  const BoxButton.smallOutline({
+    required this.title,
+    this.onTap,
+    this.leading,
+    this.height = 36.0, // Ukuran kecil
+  })  : disabled = false,
+        busy = false,
+        outline = true,
+        small = true;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -80,8 +91,10 @@ class BoxButton extends StatelessWidget {
           ],
         )
             : CircularProgressIndicator(
-          strokeWidth: 8,
-          valueColor: AlwaysStoppedAnimation(Colors.white),
+          strokeWidth: 2, // Kecilkan untuk small button
+          valueColor: AlwaysStoppedAnimation(
+            outline ? MyColors.primary : Colors.white,
+          ),
         ),
       ),
     );

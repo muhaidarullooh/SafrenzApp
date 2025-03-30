@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safrenz/widgets/account/tenant/header_account.dart';
 import 'package:safrenz/widgets/payment/tenant/list_tagihan.dart';
+import 'package:safrenz/widgets/payment/tenant/list_tagihan_done.dart';
 
 import '../../../common/my_colors.dart';
 import '../../../widgets/main menu/tenant/device_akses.dart';
@@ -69,7 +70,7 @@ class TabScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             ListTagihan(),
-            Center(child: Text('Ini halaman Profil')),
+            ListTagihanDone()
           ],
         ),
       ),

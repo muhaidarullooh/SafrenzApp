@@ -6,7 +6,7 @@ import '../../../common/my_style.dart';
 import '../../../screens/detailakseslock.dart';
 import '../../components/buttons.dart';
 
-class CardTagihan extends StatelessWidget {
+class CardTagihanDone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,11 +33,11 @@ class CardTagihan extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
-                      color: MyColors.blue,
+                      color: MyColors.green,
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Text(
-                      'New',
+                      'Success',
                       style: captionStyle.copyWith(color: MyColors.white, fontWeight: FontWeight.bold,),
                     ),
                   ),
@@ -62,9 +62,9 @@ class CardTagihan extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: SizedBox(
-                  width: 150, // Sesuaikan dengan kebutuhan agar button pendek
-                  child: BoxButton.small(
-                    title: 'Bayar Sekarang',
+                  width: 100, // Sesuaikan dengan kebutuhan agar button pendek
+                  child: BoxButton.smallOutline(
+                    title: 'Detail',
                     onTap: () {
                       Navigator.of(context, rootNavigator: true).push(
                         MaterialPageRoute(builder: (context) => PaymentInfo()),

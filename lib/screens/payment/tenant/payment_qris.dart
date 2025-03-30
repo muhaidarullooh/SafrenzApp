@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:safrenz/screens/payment/tenant/payment.dart';
+import 'package:safrenz/screens/payment/tenant/payment_info_detail.dart';
 import 'package:safrenz/screens/payment/tenant/payment_qris.dart';
 import 'package:safrenz/screens/payment/tenant/paymentsuccess.dart';
 
@@ -116,7 +117,7 @@ class PaymentQris extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Payment(),
+                      builder: (context) => PaymentInfoDetail(),
                     ),
                   );
                 },

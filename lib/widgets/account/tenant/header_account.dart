@@ -26,8 +26,8 @@ class HeaderAccount extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      height: 48,
-                      width: 48,
+                      height: 36,
+                      width: 36,
                       child: Image.asset('assets/images/avatar.png'),
                     ),
                     const SizedBox(width: 8),
@@ -36,18 +36,18 @@ class HeaderAccount extends StatelessWidget {
                       children: [
                         Text(
                           'Jhondoe',
-                          style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                          style: body2Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
                         ),
                         SizedBox(height: 2),
                         Text(
                           'jondoe@gmail.com',
-                          style: body2Style.copyWith(color: MyColors.blackSoftText,),
+                          style: captionStyle.copyWith(color: MyColors.blackSoftText,),
                         ),
                       ],
                     ),
                   ],
                 ),
-                SvgPicture.asset('assets/images/iconarrowright.svg'),
+                Icon(Icons.chevron_right, color: MyColors.grey, size: 24),
               ],
             ),
           ),

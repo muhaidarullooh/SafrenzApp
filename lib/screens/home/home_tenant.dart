@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:safrenz/common/my_colors.dart';
 import 'package:safrenz/widgets/header/tenant/header_home_tenant.dart';
 import 'package:safrenz/widgets/main%20menu/tenant/info_akses_unit.dart';
+import 'package:safrenz/widgets/main%20menu/tenant/menu_notification.dart';
 import 'package:safrenz/widgets/main%20menu/tenant/menu_opendoor.dart';
 import 'package:safrenz/widgets/main%20menu/tenant/menu_logactivity.dart';
 import 'package:safrenz/widgets/main%20menu/tenant/menu_fitur_lainnya.dart';
@@ -54,6 +55,7 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 16,
               ),
+              const MenuNotification(),
               const MenuOpendoor(),  // Pastikan nama widget sesuai
 
               const MenuFiturLainnya(),

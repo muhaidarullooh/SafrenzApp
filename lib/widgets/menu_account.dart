@@ -53,7 +53,7 @@ class _MenuAccountState extends State<MenuAccount> {
                 item['title'],
                 style: const TextStyle(fontSize: 16, color: Colors.black54),
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded, size: 18, color: MyColors.grey,),
+              trailing: Icon(Icons.chevron_right, color: MyColors.grey, size: 24),
               onTap: () => _onMenuItemTap(item['title']),
             );
           },

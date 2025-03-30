@@ -95,12 +95,10 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/images/logsr.svg
     - assets/images/logosafrenz.svg
     - assets/images/imgback.png
     - assets/images/avatar.png
     - assets/images/il_empty.svg
-    - assets/images/camera.svg
     - assets/images/imagekos.png
     - assets/images/onb1.png
     - assets/images/onb2.png
@@ -109,14 +107,6 @@ flutter:
     - assets/images/imagedevicelock.png
 
 
-    - assets/images/ic_help.svg
-    - assets/images/ic_invite_user.svg
-    - assets/images/ic_language.svg
-    - assets/images/ic_myteam.svg
-    - assets/images/ic_pin_setting.svg
-    - assets/images/ic_rating.svg
-    - assets/images/ic_setting_company.svg
-    - assets/images/ic_chat.svg
     - assets/images/ic_call.svg
     - assets/images/ic_dari.svg
     - assets/images/ic_google.svg
