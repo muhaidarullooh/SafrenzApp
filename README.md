@@ -2,4 +2,7 @@
 
 Smart door lock app
 
-New update repo
+<p align="center">
+  <img src="thumbnail.png" alt="Safrenz Thumbnail" width="800" />
+</p>
+
