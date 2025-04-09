@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:safrenz/screens/daftar.dart';
+import 'package:safrenz/screens/kode_pin.dart';
 import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
 import '../common/my_colors.dart';
@@ -17,8 +19,23 @@ class _MenuAccountState extends State<MenuAccount> {
   }
 
   final List<Map<String, dynamic>> menuItems = [
-    {'icon': SRIcon.pin, 'title': 'Atur PIN Aplikasi', 'onTap': () {}},
-    {'icon': SRIcon.syaratketentuan, 'title': 'Syarat & Ketentuan', 'onTap': () {}},
+    {
+      'icon': SRIcon.pin,
+      'title': 'Atur PIN Aplikasi',
+      'onTap': (BuildContext context) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => KodePin()),
+        );
+      },
+    },
+    {'icon': SRIcon.syaratketentuan, 'title': 'Syarat & Ketentuan', 'onTap': (BuildContext context) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => daftar()),
+      );
+    },
+    },
     {'icon': SRIcon.clipboard_text, 'title': 'Saran untuk pengembang', 'onTap': () {}},
     {'icon': SRIcon.star, 'title': 'Beri Rating', 'onTap': () {}},
     {'icon': SRIcon.logout, 'title': 'Logout', 'onTap': () {}},
@@ -54,7 +71,7 @@ class _MenuAccountState extends State<MenuAccount> {
                 style: const TextStyle(fontSize: 16, color: Colors.black54),
               ),
               trailing: Icon(Icons.chevron_right, color: MyColors.grey, size: 24),
-              onTap: () => _onMenuItemTap(item['title']),
+              onTap: () => item['onTap'](context),
             );
           },
         ),

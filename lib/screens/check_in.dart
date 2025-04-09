@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safrenz/screens/info_unit.dart';
 import 'package:safrenz/screens/navigation/nav_screen_tenant.dart';
 
 import '../common/my_colors.dart';
@@ -87,7 +88,7 @@ class _CheckInState extends State<CheckIn> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NavScreenTenant()),
+                  MaterialPageRoute(builder: (context) => InfoUnit()),
                 );
               },
             ),
@@ -127,7 +128,7 @@ class _CheckInState extends State<CheckIn> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NavScreenOwner()),
+                  MaterialPageRoute(builder: (context) => InfoUnit()),
                 );
               },
             ),

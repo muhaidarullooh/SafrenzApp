@@ -20,7 +20,7 @@ const TextStyle heading3Style = TextStyle(
 );
 
 const TextStyle Subtitle1Style = TextStyle(
-  fontSize: 16,
+  fontSize: 18,
   fontWeight: FontWeight.w700,
 );
 const TextStyle Subtitle2Style = TextStyle(

@@ -9,6 +9,7 @@ class BoxInputField extends StatelessWidget {
   final Widget? trailing;
   final bool password;
   final void Function()? trailingTapped;
+  final TextInputType keyboardType;
 
   final circularBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
@@ -23,14 +24,16 @@ class BoxInputField extends StatelessWidget {
     this.trailing,
     this.trailingTapped,
     this.password = false,
+    this.keyboardType = TextInputType.text,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(16, 10, 16, 10),  // Padding sesuai permintaan
+      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),  // Padding sesuai permintaan
       child: TextField(
         controller: controller,
+        keyboardType: keyboardType,
         style: TextStyle(height: 1),
         obscureText: password,
         decoration: InputDecoration(

@@ -50,7 +50,7 @@ class MainMenuPenyewa extends StatelessWidget {
                   ),
                 ],
               ),
-              SvgPicture.asset('assets/images/iconarrowright.svg'),
+              Icon(Icons.chevron_right, color: MyColors.grey, size: 24),
             ],
           ),
         ),

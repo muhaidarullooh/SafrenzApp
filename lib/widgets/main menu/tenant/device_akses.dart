@@ -16,7 +16,10 @@ class DeviceAkses extends StatelessWidget {
         onTap: () {
           showModalBottomSheet(
             context: context,
-            isScrollControlled: true, // Memungkinkan konten menyesuaikan tinggi
+            isScrollControlled: true,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+            ),
             builder: (context) {
               return SizedBox(
                 height: 500, // Atur tinggi sesuai kebutuhan Anda
@@ -25,7 +28,7 @@ class DeviceAkses extends StatelessWidget {
             },
           );
         },
-        borderRadius: BorderRadius.circular(24),
+
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),

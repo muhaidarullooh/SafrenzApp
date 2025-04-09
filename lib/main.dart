@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:safrenz/screens/check_in.dart';
+import 'package:safrenz/screens/info_unit.dart';
 import 'package:safrenz/screens/navigation/nav_screen_tenant.dart';
 import 'package:safrenz/screens/onboarding.dart';
+import 'package:safrenz/screens/splashscreen.dart';
 
 import 'screens/navigation/screens_owner.dart';
 
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         );
       },
-      home: const NavScreenTenant(),
+      home: NavScreenTenant(),
     );
   }
 }
