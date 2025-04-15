@@ -68,11 +68,13 @@ class LogActivityDeviceState extends State<LogActivityDevice> {
                     ),
                     SizedBox(height: 2),
                     Text(
-                      '18:00',
+                      '23-01-2025 18:00',
                       style: OverlineStyle.copyWith(color: MyColors.blackText,),
                     ),
+
                   ],
                 ),
+                const SizedBox(width: 12),
               ],
             ),
           ),

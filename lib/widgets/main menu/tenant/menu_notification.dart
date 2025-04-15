@@ -18,7 +18,7 @@ class _MenuNotificationState extends State<MenuNotification> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
+      padding: EdgeInsets.fromLTRB(14, 0, 14, 14),
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(

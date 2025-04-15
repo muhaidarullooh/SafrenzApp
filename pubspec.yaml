@@ -52,8 +52,17 @@ flutter:
     - assets/images/img_1.png
     - assets/images/img_2.png
     - assets/images/img_3.png
+    - assets/images/splashlogo.png
+    - assets/images/s_logo.png
 
   fonts:
     - family: SRIcon
       fonts:
         - asset: assets/fonts/SRIcon.ttf
+
+#flutter_native_splash:
+#  color: "#0B0020"
+#  image: assets/images/s_logo.png
+#  android: true
+#  ios: false
+#  fullscreen: true

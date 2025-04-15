@@ -6,14 +6,14 @@ import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
 import '../../../common/my_style.dart';
 
-class HeaderAddUnit extends StatefulWidget {
-  const HeaderAddUnit({Key? key}) : super(key: key);
+class HeaderAddAkses extends StatefulWidget {
+  const HeaderAddAkses({Key? key}) : super(key: key);
 
   @override
-  State<HeaderAddUnit> createState() => _HeaderAddUnitState();
+  State<HeaderAddAkses> createState() => _HeaderAddAksesState();
 }
 
-class _HeaderAddUnitState extends State<HeaderAddUnit> {
+class _HeaderAddAksesState extends State<HeaderAddAkses> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

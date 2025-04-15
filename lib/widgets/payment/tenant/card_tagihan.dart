@@ -62,8 +62,7 @@ class CardTagihan extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: SizedBox(
-                  width: 150, // Sesuaikan dengan kebutuhan agar button pendek
-                  child: BoxButton.small(
+                  child: BoxButton(
                     title: 'Bayar Sekarang',
                     onTap: () {
                       Navigator.of(context, rootNavigator: true).push(

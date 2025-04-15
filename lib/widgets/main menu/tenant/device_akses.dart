@@ -3,6 +3,8 @@ import 'package:safrenz/common/my_colors.dart';
 import 'package:safrenz/screens/detailakseslock.dart';
 import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
+import '../../../common/my_style.dart';
+
 class DeviceAkses extends StatelessWidget {
   const DeviceAkses({Key? key}) : super(key: key);
 
@@ -59,7 +61,7 @@ class DeviceAkses extends StatelessWidget {
                         ),
                       ),
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.start, // Menyelaraskan elemen di dalam row ke tengah
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -68,7 +70,7 @@ class DeviceAkses extends StatelessWidget {
                               borderRadius: BorderRadius.circular(50),
                             ),
                             child: const Text(
-                              'ON',
+                              'Aktif',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -81,7 +83,7 @@ class DeviceAkses extends StatelessWidget {
 
                     ],
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start, // Menyelaraskan konten di dalam row ke tengah
                     children: [
@@ -95,6 +97,11 @@ class DeviceAkses extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          Text(
+                            '3 h ago',
+                              style: captionStyle.copyWith(
+                                color: MyColors.blackText,)
+                          ),
                           const SizedBox(height: 8),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start, // Menyelaraskan elemen di dalam row ke tengah
@@ -103,11 +110,9 @@ class DeviceAkses extends StatelessWidget {
                               const SizedBox(width: 4),
                               Text(
                                 '100%',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: MyColors.green,
-                                ),
+                                  style: captionStyle.copyWith(
+                                    color: MyColors.green,
+                                    fontWeight: FontWeight.bold,)
                               ),
                             ],
                           ),

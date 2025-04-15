@@ -2,6 +2,7 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:safrenz/common/my_colors.dart';
+import 'package:safrenz/widgets/header/owner/header_add_unit.dart';
 import 'package:safrenz/widgets/header/owner/header_profile_owner.dart';
 import 'package:safrenz/widgets/header/owner/info_upgrade_pricing.dart';
 import 'package:safrenz/widgets/header/tenant/info_unit.dart';
@@ -78,7 +79,7 @@ class _HeaderHomeOwnertate extends State<HeaderHomeOwner> {
                   SizedBox(
                     height: 16,
                   ),
-                  InfoUpgradePricing(),
+                  HeaderAddUnit(),
                 ],
               ),
             ),

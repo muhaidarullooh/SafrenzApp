@@ -14,7 +14,7 @@ class _NavScreenState extends State<NavScreenOwner> {
 
   final List _screens = [
     {"screen": const Home(), "title": "Home"},
-    {"screen": const activity(), "title": "Activity"},
+    {"screen": const Request(), "title": "Request"},
     {"screen": const Account(), "title": "Account"},
   ];
 

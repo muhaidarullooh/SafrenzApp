@@ -2,7 +2,7 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:safrenz/common/my_colors.dart';
-import 'package:safrenz/widgets/header/tenant/header_add_unit.dart';
+import 'package:safrenz/widgets/header/tenant/header_add_akses.dart';
 import 'package:safrenz/widgets/header/tenant/info_unit.dart';
 import 'package:safrenz/widgets/header/tenant/header_profile_tenant.dart';
 
@@ -77,7 +77,7 @@ class _HeaderHomeTenantState extends State<HeaderHomeTenant> {
                   SizedBox(
                     height: 16,
                   ),
-                  InfoUnit(),
+                  HeaderAddAkses(),
                 ],
               ),
             ),

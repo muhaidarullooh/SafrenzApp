@@ -14,7 +14,7 @@ class ListTagihan extends StatelessWidget {
       home: Scaffold(
         backgroundColor: MyColors.backcolor,
         body: ListView.builder(
-          itemCount: 5,
+          itemCount: 1,
           itemBuilder: (context, index) {
             return CardTagihan();
           },

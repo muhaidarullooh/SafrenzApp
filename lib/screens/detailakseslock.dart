@@ -184,7 +184,7 @@ class DetailAksesLock extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center, // Menambahkan alignment vertikal ke tengah
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
@@ -212,7 +212,7 @@ class DetailAksesLock extends StatelessWidget {
                               ),
                             ),
                             Column(
-                              mainAxisAlignment: MainAxisAlignment.start, // Menyelaraskan elemen di dalam row ke tengah
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
                                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -221,7 +221,7 @@ class DetailAksesLock extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(50),
                                   ),
                                   child: Text(
-                                    'ON',
+                                    'Aktif',
                                     style: body1Style.copyWith(color: MyColors.white, fontWeight: FontWeight.bold,),
                                   ),
                                 ),
@@ -236,13 +236,17 @@ class DetailAksesLock extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-                                  child: Text(
-                                    'Pintu Kamar',
-                                    style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
-                                  ),
+                                Text(
+                                  'Pintu Kamar',
+                                  style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
                                 ),
+                                Text(
+                                    '3 h ago',
+                                    style: captionStyle.copyWith(
+                                      color: MyColors.blackText,
+                                    )
+                                ),
+                                const SizedBox(height: 10),
                                 Row(
                                   children: [
                                     Icon(SRIcon.battery, color: MyColors.green, size: 18),
