@@ -27,15 +27,12 @@ class _InfoUnitState extends State<InfoUnit> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: MyColors.surface.withOpacity(0.5),
+              color: MyColors.primary.withOpacity(0.8),
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(24),
-                topLeft: Radius.circular(24),),
-              border: Border.all(
-                color: MyColors.surface2,
+                topLeft: Radius.circular(24),
               ),
-
-              ),
+            ),
             child: Padding(
               padding: EdgeInsets.fromLTRB(10, 16, 10, 16),
               child: Container(
@@ -63,7 +60,7 @@ class _InfoUnitState extends State<InfoUnit> {
                     Container(
                       width: 1, // Ketebalan garis
                       height: 50, // Tinggi garis
-                      color: MyColors.surface2, // Warna garis
+                      color: MyColors.white // Warna garis
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

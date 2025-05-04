@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/payment/owner/card_request.dart';
+import '../../common/my_colors.dart';
+import '../../widgets/payment/owner/card_request.dart';
 
 class Request extends StatefulWidget {
   const Request({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _RequestState extends State<Request> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFFF8F8F8),
+        backgroundColor: MyColors.background(context),
         title: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 0),
           child: Column(
@@ -31,7 +32,6 @@ class _RequestState extends State<Request> {
                       Text(
                         'Request',
                         style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
                             fontWeight: FontWeight.bold,
                             fontSize: 24),
                       )
@@ -44,10 +44,10 @@ class _RequestState extends State<Request> {
         ),
       ),
       // ===================== BODY ========================== //
-      backgroundColor: const Color(0xFFF8F8F8),
+      backgroundColor: MyColors.background(context),
 
       body: ListView.builder(
-        itemCount: 1,
+        itemCount: 3,
         itemBuilder: (context, index) {
           return CardRequest();
         },

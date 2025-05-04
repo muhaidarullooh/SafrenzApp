@@ -28,11 +28,11 @@ class _InfoAksesUnitState extends State<InfoAksesUnit> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(24),
-              // boxShadow: const [
-              //   BoxShadow(color: Colors.grey, blurRadius: 0.3),
-              // ],
+              color: MyColors.primary.withOpacity(0.8),
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(24),
+                topLeft: Radius.circular(24),
+              ),
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -46,14 +46,12 @@ class _InfoAksesUnitState extends State<InfoAksesUnit> {
                   Text(
                     'Informasi',
                     style: body1Style.copyWith(
-                      color: MyColors.blackText,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     'Untuk menampilkan fitur anda perlu scan kodeakses atau masukan kode dari pemilik unit',
                     style: body2Style.copyWith(
-                      color: MyColors.blackSoftText,
                     ),
                   ),
                   SizedBox(height: 16),
@@ -74,7 +72,6 @@ class _InfoAksesUnitState extends State<InfoAksesUnit> {
                               child: Text(
                                 'Pilih menu masukan akses unit',
                                 style: body2Style.copyWith(
-                                  color: MyColors.blackSoftText,
                                 ),
                                 softWrap: true, // Memungkinkan teks untuk pindah ke baris baru
                               ),
@@ -95,7 +92,6 @@ class _InfoAksesUnitState extends State<InfoAksesUnit> {
                               child: Text(
                                 'Pilih masukan dengan scan QR atau masukkan kode',
                                 style: body2Style.copyWith(
-                                  color: MyColors.blackSoftText,
                                 ),
                                 softWrap: true, // Memungkinkan teks untuk pindah ke baris baru
                               ),
@@ -116,7 +112,6 @@ class _InfoAksesUnitState extends State<InfoAksesUnit> {
                               child: Text(
                                 'Jika pilih Scan QR , anda scan qrcode yang diberikan oleh pemilik unit',
                                 style: body2Style.copyWith(
-                                  color: MyColors.blackSoftText,
                                 ),
                                 softWrap: true, // Memungkinkan teks untuk pindah ke baris baru
                               ),

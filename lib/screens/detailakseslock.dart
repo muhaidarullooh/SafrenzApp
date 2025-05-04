@@ -154,13 +154,13 @@ class DetailAksesLock extends StatelessWidget {
       children: [
         // Konten utama Bottom Sheet
         Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: MyColors.background(context),
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.white,
+            backgroundColor: MyColors.background(context),
             actions: [
               IconButton(
-                icon: Icon(Icons.close, color: Colors.black),
+                icon: Icon(Icons.close),
                 onPressed: () => Navigator.pop(context),
               ),
             ],
@@ -171,18 +171,12 @@ class DetailAksesLock extends StatelessWidget {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                    color: MyColors.white,
+                    color: MyColors.surface(context),
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: MyColors.softGrey),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/images/imgback.png"),
-                      fit: BoxFit.cover,
-                      opacity: 200,
-                      alignment: Alignment.topCenter,
-                    ),
+                    border: Border.all(color: MyColors.border(context)),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,7 +189,7 @@ class DetailAksesLock extends StatelessWidget {
                               height: 70,
                               width: 70,
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: MyColors.background(context),
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               child: Padding(
@@ -215,14 +209,18 @@ class DetailAksesLock extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                   decoration: BoxDecoration(
-                                    color: MyColors.green,
+                                    color: MyColors.softGreen,
                                     borderRadius: BorderRadius.circular(50),
                                   ),
                                   child: Text(
-                                    'Aktif',
-                                    style: body1Style.copyWith(color: MyColors.white, fontWeight: FontWeight.bold,),
+                                    'ON',
+                                    style: TextStyle(
+                                      color: MyColors.green,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -238,12 +236,12 @@ class DetailAksesLock extends StatelessWidget {
                               children: [
                                 Text(
                                   'Pintu Kamar',
-                                  style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                                  style: body1Style.copyWith(color: MyColors.blackText(context), fontWeight: FontWeight.bold,),
                                 ),
                                 Text(
                                     '3 h ago',
                                     style: captionStyle.copyWith(
-                                      color: MyColors.blackText,
+                                      color: MyColors.blackText(context),
                                     )
                                 ),
                                 const SizedBox(height: 10),
@@ -261,9 +259,9 @@ class DetailAksesLock extends StatelessWidget {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                color: MyColors.white,
+                                color: MyColors.background(context),
                                 borderRadius: BorderRadius.circular(16),
-                                border: Border.all(color: MyColors.softGrey),
+                                border: Border.all(color: MyColors.background(context)),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
@@ -272,11 +270,11 @@ class DetailAksesLock extends StatelessWidget {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      const Icon(SRIcon.pin, color: Colors.black, size: 24),
+                                      const Icon(SRIcon.pin, size: 24),
                                       const SizedBox(height: 4),
                                       Text(
                                         'PIN',
-                                        style: TextStyle(fontWeight: FontWeight.bold, color: MyColors.blackText, fontSize: 14),
+                                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -307,7 +305,7 @@ class DetailAksesLock extends StatelessWidget {
           ),
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
-              color: MyColors.white,
+              color: MyColors.background(context),
             ),
             padding: EdgeInsets.all(16.0),
             child: SliderButton(

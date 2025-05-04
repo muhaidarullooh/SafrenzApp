@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/my_colors.dart';
+
 class activity extends StatefulWidget {
   const activity({Key? key}) : super(key: key);
 
@@ -14,7 +16,7 @@ class _activityState extends State<activity> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFFF8F8F8),
+        backgroundColor: MyColors.background(context),
         title: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 0),
           child: Column(
@@ -29,7 +31,6 @@ class _activityState extends State<activity> {
                       Text(
                         'Komunikasi',
                         style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
                             fontWeight: FontWeight.bold,
                             fontSize: 24),
                       )
@@ -42,7 +43,7 @@ class _activityState extends State<activity> {
         ),
       ),
       // ===================== BODY ========================== //
-      backgroundColor: const Color(0xFFF8F8F8),
+      backgroundColor: MyColors.background(context),
 
       body: ListView(
         physics: const ClampingScrollPhysics(),

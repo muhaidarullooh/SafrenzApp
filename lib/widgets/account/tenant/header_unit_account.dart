@@ -17,9 +17,9 @@ class HeaderUnitAccount extends StatelessWidget {
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18),
-            side: BorderSide(color: MyColors.softGrey),
+            side: BorderSide(color: MyColors.border(context)),
           ),
-          color: MyColors.backcolor,
+          color: MyColors.background(context),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
@@ -32,7 +32,7 @@ class HeaderUnitAccount extends StatelessWidget {
                       'Home Stay Alamanda',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: MyColors.blackText,
+                        color: MyColors.blackText(context),
                         fontSize: 16,
                       ),
                     ),
@@ -46,7 +46,7 @@ class HeaderUnitAccount extends StatelessWidget {
                     ),
                   ],
                 ),
-                Icon(Icons.chevron_right, color: MyColors.grey, size: 24),
+                Icon(Icons.chevron_right,size: 24),
               ],
             ),
           ),

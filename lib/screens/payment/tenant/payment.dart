@@ -1,76 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:safrenz/widgets/account/tenant/header_account.dart';
 import 'package:safrenz/widgets/payment/tenant/list_tagihan.dart';
 import 'package:safrenz/widgets/payment/tenant/list_tagihan_done.dart';
-
 import '../../../common/my_colors.dart';
-import '../../../widgets/main menu/tenant/device_akses.dart';
-
-
 
 class Payment extends StatelessWidget {
   const Payment({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: TabScreen(),
-    );
-  }
-}
-
-class TabScreen extends StatelessWidget {
-  const TabScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2, // Jumlah tab
+      length: 2,
       child: Scaffold(
-        backgroundColor: MyColors.backcolor,
+        backgroundColor: MyColors.background(context),
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: BackButton(
-            color: MyColors.blackText,
-          ),
+          backgroundColor: MyColors.background(context),
+          leading: const BackButton(),
           titleSpacing: 0,
-          title: Text(
+          title: const Text(
             'Pembayaran',
-            style: TextStyle(
-                color: MyColors.blackText,
-                fontSize: 16,
-                fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(48),
+            preferredSize: const Size.fromHeight(48),
             child: Column(
               children: [
                 TabBar(
-                  labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   indicatorSize: TabBarIndicatorSize.tab,
                   labelColor: MyColors.primary,
-                  unselectedLabelColor: MyColors.grey,
+                  unselectedLabelColor: MyColors.grey(context),
                   indicator: UnderlineTabIndicator(
-                    borderSide: BorderSide(width: 3, color: MyColors.primary,),
+                    borderSide: BorderSide(width: 3, color: MyColors.primary),
                   ),
-                  tabs: [
+                  tabs: const [
                     Tab(text: "Tagihan"),
                     Tab(text: "Terbayar"),
                   ],
                 ),
                 Container(
-                  height: 2,
-                  color: MyColors.softGrey,
+                  height: 1,
+                  color: MyColors.grey(context),
                 ),
               ],
             ),
-        ),
+          ),
         ),
         body: TabBarView(
           children: [
             ListTagihan(),
-            ListTagihanDone()
+            ListTagihanDone(),
           ],
         ),
       ),

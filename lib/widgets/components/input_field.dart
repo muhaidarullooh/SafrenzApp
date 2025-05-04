@@ -38,11 +38,11 @@ class BoxInputField extends StatelessWidget {
         obscureText: password,
         decoration: InputDecoration(
           labelText: labelText,  // Menambahkan labelText
-          labelStyle: TextStyle(color: Colors.black),
+          labelStyle: TextStyle(),
           hintText: placeholder,
           contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
           filled: true,
-          fillColor: MyColors.white,
+          fillColor: MyColors.surface(context),
           prefixIcon: leading,
           suffixIcon: trailing != null
               ? GestureDetector(
@@ -51,7 +51,7 @@ class BoxInputField extends StatelessWidget {
           )
               : null,
           border: circularBorder.copyWith(
-            borderSide: BorderSide(color: MyColors.softGrey),
+            borderSide: BorderSide(color: MyColors.border(context)),
           ),
           errorBorder: circularBorder.copyWith(
             borderSide: BorderSide(color: MyColors.red),
@@ -60,7 +60,7 @@ class BoxInputField extends StatelessWidget {
             borderSide: BorderSide(color: MyColors.primary),
           ),
           enabledBorder: circularBorder.copyWith(
-            borderSide: BorderSide(color: MyColors.softGrey),
+            borderSide: BorderSide(color: MyColors.border(context)),
           ),
         ),
       ),

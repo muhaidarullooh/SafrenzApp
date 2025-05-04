@@ -3,10 +3,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:safrenz/screens/payment/tenant/payment.dart';
 import 'package:safrenz/screens/payment/tenant/payment_qris.dart';
 
-import '../../../common/my_colors.dart';
-import '../../../widgets/components/buttons.dart';
+import '../../common/my_colors.dart';
+import '../../common/my_style.dart';
+import '../../widgets/components/buttons.dart';
 
-class PaymentInfoDetail extends StatelessWidget {
+class DetailDataRequest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +34,7 @@ class PaymentInfoDetail extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: _buildFixedContinueButton(context),
       backgroundColor: MyColors.background(context),
     );
   }
@@ -48,29 +50,23 @@ class PaymentInfoDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              'Home Stay Pak Supri',
+              style: body1Style.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Row(
               children: [
-                SizedBox(
-                  height: 36,
-                  child: SvgPicture.asset('assets/images/menunggu_pay.svg'),
+                Expanded(
+                  child: Text(
+                    'Jln. Cilalawak Kadumekar, Maracang, Kec. Babakancikao, Kabupaten Purwakarta',
+                    style: captionStyle.copyWith(
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-                SizedBox(width: 4),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Menunggu Pembayaran', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: MyColors.yellow,)),
-                    Text('Pembayaran kosan', style: TextStyle(fontSize: 12,)),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
-            Column(
-              children: [
-                _buildInfoRow('No Tagihan', 'INV20938309'),
-                _buildInfoRow('Nomor Unit', '13'),
-                _buildInfoRow('Periode', '12 Maret 2025'),
-                _buildInfoRow('Harga Sewa', 'Rp1.000.000', isBold: true),
               ],
             ),
           ],
@@ -91,13 +87,47 @@ class PaymentInfoDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Rincian pembayaran', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text('Data request', style: body1Style.copyWith(
+              fontWeight: FontWeight.bold,),),
             SizedBox(height: 8),
-            _buildInfoRow('Harga kos /bulan', 'Rp1.000.000'),
-            _buildInfoRow('Biaya layanan', 'Rp1.000'),
-            Divider(thickness: 1, color: MyColors.border(context),height: 20),
-            _buildInfoRow('Total pembayaran', 'Rp1.001.000', isBold: true),
+            _buildInfoRow('Nama', 'Jhon doe', isBold: true),
+            _buildInfoRow('Nomor Ponsel', '081111202909', isBold: true),
+            _buildInfoRow('Nomor KTP', '6210290930006', isBold: true),
+            Divider(thickness: 1, color: MyColors.border(context),height: 24),
+            SizedBox(height: 8),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                'assets/images/ktpsample.png',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 200,
+              ),
+            ),
+            SizedBox(height: 8),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFixedContinueButton(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
+      decoration: BoxDecoration(
+        color: MyColors.surface(context),
+
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        child: BoxButton(
+          title: 'Masukkan akses kamar',
+          // onTap: () {
+          //   Navigator.push(
+          //     context,
+          //     MaterialPageRoute(builder: (context) => PaymentQris()),
+          //   );
+          // },
         ),
       ),
     );

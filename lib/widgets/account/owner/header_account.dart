@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../common/my_colors.dart';
 import '../../../common/my_style.dart';
 
-class HeaderAccount extends StatelessWidget {
-  const HeaderAccount({super.key});
+class HeaderAccountOwner extends StatelessWidget {
+  const HeaderAccountOwner({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +43,10 @@ class HeaderAccount extends StatelessWidget {
                           'jondoe@gmail.com',
                           style: captionStyle.copyWith(),
                         ),
+                        // Text(
+                        //   'ID Home:0390938',
+                        //   style: captionStyle.copyWith(),
+                        // ),
                       ],
                     ),
                   ],

@@ -25,7 +25,7 @@ class _MenuNotificationState extends State<MenuNotification> {
           borderRadius: BorderRadius.circular(20),
           side: BorderSide(color: MyColors.yellow),
         ),
-        color: MyColors.softYellow,
+        color: MyColors.softYellow(context),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: () {

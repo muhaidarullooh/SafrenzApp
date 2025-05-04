@@ -20,7 +20,7 @@ class LogActivityDeviceState extends State<LogActivityDevice> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50), // Sudut yang lebih bulat
         ),
-        color: MyColors.white,
+        color: MyColors.background(context),
         child: InkWell(
           // borderRadius: BorderRadius.circular(16), // Efek klik dengan borderRadius yang sama
           // onTap: () {
@@ -64,12 +64,12 @@ class LogActivityDeviceState extends State<LogActivityDevice> {
                   children: [
                     Text(
                       'Jhondoe....',
-                      style: captionStyle.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                      style: captionStyle.copyWith( fontWeight: FontWeight.bold,),
                     ),
                     SizedBox(height: 2),
                     Text(
                       '23-01-2025 18:00',
-                      style: OverlineStyle.copyWith(color: MyColors.blackText,),
+                      style: OverlineStyle.copyWith(),
                     ),
 
                   ],

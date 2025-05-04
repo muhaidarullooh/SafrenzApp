@@ -19,7 +19,7 @@ class PaymentQris extends StatelessWidget {
         title: Text(
           'Menunggu Pembayaran',
           style: TextStyle(
-              color: MyColors.blackText,
+
               fontSize: 16,
               fontWeight: FontWeight.bold),
         ),
@@ -31,7 +31,6 @@ class PaymentQris extends StatelessWidget {
             child: Text(
               'Batalkan',
               style: TextStyle(
-                color: MyColors.grey,
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
               ),
@@ -39,8 +38,7 @@ class PaymentQris extends StatelessWidget {
           ),
         ],
         elevation: 0,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        backgroundColor: MyColors.background(context),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10),
@@ -49,9 +47,9 @@ class PaymentQris extends StatelessWidget {
           children: [
             _buildPaymentMethod(context),
             SizedBox(height: 8),
-            _buildQrimage(),
+            _buildQrimage(context),
             SizedBox(height: 8),
-            _buildPaymentInstructions()
+            _buildPaymentInstructions(context)
           ],
         ),
       ),
@@ -62,14 +60,15 @@ class PaymentQris extends StatelessWidget {
           _buildFixedDownloadQRButton(context),
         ],
       ),
-      backgroundColor: MyColors.backcolor,
+      backgroundColor: MyColors.background(context),
     );
   }
 
   Widget _buildPaymentMethod(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: MyColors.border(context)),),
+      color: MyColors.surface(context),
       elevation: 0,
       child: Padding(
         padding: EdgeInsets.all(16),
@@ -78,7 +77,7 @@ class PaymentQris extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: MyColors.surface(context),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,10 +105,10 @@ class PaymentQris extends StatelessWidget {
             SizedBox(height: 16),
             Container(
               decoration: BoxDecoration(
-                color: MyColors.backcolor,
+                color: MyColors.background(context),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: MyColors.softGrey,
+                  color: MyColors.border(context)
                 ),
               ),
               child: InkWell(
@@ -128,9 +127,9 @@ class PaymentQris extends StatelessWidget {
                     children: [
                       Text(
                         'Lihat detail transaksi',
-                        style: TextStyle(color: MyColors.grey),
+                        style: TextStyle(),
                       ),
-                      Icon(Icons.arrow_forward_ios, size: 16, color: MyColors.grey),
+                      Icon(Icons.arrow_forward_ios, size: 16,),
                     ],
                   ),
                 ),
@@ -142,10 +141,11 @@ class PaymentQris extends StatelessWidget {
     );
   }
 
-  Widget _buildQrimage() {
+  Widget _buildQrimage(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: MyColors.border(context)),),
+      color: MyColors.surface(context),
       elevation: 0,
       child: Padding(
         padding: EdgeInsets.all(16),
@@ -199,10 +199,11 @@ class PaymentQris extends StatelessWidget {
     );
   }
 
-  Widget _buildPaymentInstructions() {
+  Widget _buildPaymentInstructions(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: MyColors.border(context)),),
+      color: MyColors.surface(context),
       elevation: 0,
       child: Padding(
         padding: EdgeInsets.all(16),
@@ -225,10 +226,10 @@ class PaymentQris extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          top: BorderSide(color: MyColors.softGrey, width: 1),
-        ),
+        color: MyColors.surface(context),
+        // border: Border(
+        //   top: BorderSide(color: MyColors.softGrey(context) ,width: 1),
+        // ),
       ),
       child: SizedBox(
         width: double.infinity,
@@ -249,10 +250,7 @@ class PaymentQris extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          top: BorderSide(color: MyColors.softGrey, width: 1),
-        ),
+        color: MyColors.surface(context),
       ),
       child: SizedBox(
         width: double.infinity,

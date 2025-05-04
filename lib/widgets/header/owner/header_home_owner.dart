@@ -23,29 +23,29 @@ class _HeaderHomeOwnertate extends State<HeaderHomeOwner> {
         child: Container(
             decoration:  BoxDecoration(
             gradient: LinearGradient(
-            colors: [MyColors.grey, MyColors.white,],
+              colors: [MyColors.shadow(context).withOpacity(0.3), MyColors.background(context),],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
             ),
               border: Border(
                 left: BorderSide(
                   width: 0,
-                  color: MyColors.white,
+                  color: MyColors.background(context),
                   style: BorderStyle.solid,
                 ),
                 right: BorderSide(
                   width: 0,
-                  color: MyColors.white,
+                  color: MyColors.background(context),
                   style: BorderStyle.solid,
                 ),
                 top: BorderSide(
                   width: 0,
-                  color: MyColors.white,
+                  color: MyColors.background(context),
                   style: BorderStyle.solid,
                 ),
                 bottom: BorderSide(
                   width: 2,
-                  color: MyColors.white,
+                  color: MyColors.background(context),
                   style: BorderStyle.solid,
                 ),
               ),
@@ -64,22 +64,21 @@ class _HeaderHomeOwnertate extends State<HeaderHomeOwner> {
                 image: const DecorationImage(
                   image: AssetImage("assets/images/imgback.png"),
                   fit: BoxFit.cover,
-                  opacity: 200,
                   alignment: Alignment.topCenter,
+                  colorFilter: ColorFilter.mode(
+                    Color.fromRGBO(108, 99, 255, 0.7), // putih dengan 30% opacity
+                    BlendMode.srcATop,
+                  ),
                 ),
               ),
               width: double.infinity,
-              // child: const ListTile(
-              //   title: Text('Demo Title'),
-              //   subtitle: Text('This is a simple card in Flutter.'),
-              // ),
               child: const Column(
                 children: [
                   HeaderProfileOwner(),
                   SizedBox(
                     height: 16,
                   ),
-                  HeaderAddUnit(),
+                  // HeaderAddUnit(),
                 ],
               ),
             ),

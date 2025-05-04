@@ -13,9 +13,9 @@ class MainMenuPemilik extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: MyColors.softGrey),
+        side: BorderSide(color: MyColors.border(context)),
       ),
-      color: MyColors.backcolor,
+      color: MyColors.surface(context),
       elevation: 0, // Tambahkan shadow jika ingin efek floating
       child: InkWell(
         borderRadius: BorderRadius.circular(24),
@@ -41,18 +41,18 @@ class MainMenuPemilik extends StatelessWidget {
                       Text(
                         textScaleFactor: 1.0,
                         'Pemilik atau Pengelola',
-                        style: body1Style.copyWith(color: MyColors.blackText),
+                        style: body1Style.copyWith(),
                       ),
                       Text(
                         textScaleFactor: 1.0,
                         'Kelola unit dll',
-                        style: captionStyle.copyWith(color: MyColors.blackText),
+                        style: captionStyle.copyWith(),
                       ),
                     ],
                   ),
                 ],
               ),
-              Icon(Icons.chevron_right, color: MyColors.grey, size: 24),
+              Icon(Icons.chevron_right, size: 24),
             ],
           ),
         ),

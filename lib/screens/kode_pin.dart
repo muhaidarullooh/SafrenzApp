@@ -32,13 +32,14 @@ class _KodePinState extends State<KodePin> {
   Widget _buildPinIndicator() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(6, (index) {
+      children: List.generate(4, (index) {
         return Container(
           margin: EdgeInsets.symmetric(horizontal: 8),
           width: 20,
           height: 20,
           decoration: BoxDecoration(
-            color: index < pin.length ? MyColors.primary : MyColors.softGrey,
+            color: index < pin.length ? MyColors.primary : MyColors.border(context),
+            // border: Border.all(color: MyColors.border(context)),
             shape: BoxShape.circle,
           ),
         );
@@ -84,7 +85,7 @@ class _KodePinState extends State<KodePin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.white,
+      backgroundColor: MyColors.background(context),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -102,7 +103,7 @@ class _KodePinState extends State<KodePin> {
               SizedBox(height: 8),
               Text(
                 'untuk keamanan aplikasi',
-                style: TextStyle(fontSize: 14, color: Colors.black54),
+                style: TextStyle(fontSize: 14,),
               ),
               SizedBox(height: 40),
               _buildPinIndicator(),

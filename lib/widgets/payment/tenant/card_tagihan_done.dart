@@ -12,9 +12,10 @@ class CardTagihanDone extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        color: Colors.white,
+        color: MyColors.surface(context),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: MyColors.border(context)),
         ),
         elevation: 0,
         child: Padding(
@@ -28,7 +29,7 @@ class CardTagihanDone extends StatelessWidget {
                 children: [
                   Text(
                     'Pembayaran Sewa',
-                    style: body2Style.copyWith(color: MyColors.grey),
+                    style: body2Style.copyWith(),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -46,23 +47,23 @@ class CardTagihanDone extends StatelessWidget {
               SizedBox(height: 4),
               Text(
                 'Tagihan bulan Maret 2025',
-                style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                style: body1Style.copyWith(fontWeight: FontWeight.bold,),
               ),
 
               SizedBox(height: 4),
               Text(
                 'No. INV20938309',
-                style: body2Style.copyWith(color: MyColors.grey),
+                style: body2Style.copyWith(),
               ),
               Text(
                 'Date 10 Maret 2025',
-                style: body2Style.copyWith(color: MyColors.grey),
+                style: body2Style.copyWith(),
               ),
               SizedBox(height: 16),
               Align(
                 alignment: Alignment.centerRight,
                 child: SizedBox(
-                  width: 100, // Sesuaikan dengan kebutuhan agar button pendek
+                  width: 100,
                   child: BoxButton.smallOutline(
                     title: 'Detail',
                     onTap: () {

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:safrenz/screens/input_ktp.dart';
-import 'package:safrenz/screens/navigation/nav_screen_tenant.dart';
 
 import '../common/my_colors.dart';
 import '../common/my_style.dart';
 import '../widgets/components/buttons.dart';
-import '../widgets/s_r_icon_icons.dart';
-
 
 class InfoUnit extends StatelessWidget {
   @override
@@ -17,10 +14,10 @@ class InfoUnit extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
           onPressed: () {},
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: MyColors.background(context),
         elevation: 0,
       ),
-      backgroundColor: MyColors.backcolor,
+      backgroundColor: MyColors.background(context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -29,8 +26,9 @@ class InfoUnit extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: MyColors.surface(context),
                   borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: MyColors.border(context)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -40,7 +38,6 @@ class InfoUnit extends StatelessWidget {
                       Text(
                         'Informasi',
                         style: Subtitle1Style.copyWith(
-                          color: MyColors.blackText,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -58,7 +55,6 @@ class InfoUnit extends StatelessWidget {
                       Text(
                         'Home Stay Pak Supri',
                         style: Subtitle1Style.copyWith(
-                          color: MyColors.blackText,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -69,7 +65,6 @@ class InfoUnit extends StatelessWidget {
                             child: Text(
                               'Jln. Cilalawak Kadumekar, Maracang, Kec. Babakancikao, Kabupaten Purwakarta',
                               style: body2Style.copyWith(
-                                color: MyColors.blackText,
                               ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
@@ -81,16 +76,14 @@ class InfoUnit extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: MyColors.backcolor,
+                          color: MyColors.background(context),
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(
-                            color: MyColors.softGrey,
-                          ),
+                          border: Border.all(color: MyColors.border(context)),
                         ),
                         child: Column(
                           children: [
-                            _buildInfoRow('Nomor lokasi', '12'),
-                            _buildInfoRow('Total Unit', '20'),
+                            _buildInfoRow(context, 'Nomor lokasi', '12'),
+                            _buildInfoRow(context, 'Total Unit', '20'),
                           ],
                         ),
                       ),
@@ -101,28 +94,29 @@ class InfoUnit extends StatelessWidget {
               SizedBox(height: 16),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: MyColors.surface(context),
                   borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: MyColors.border(context)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildSectionTitle('Fasilitas'),
-                      _buildFacilityItem(Icons.house, 'Ukuran bangunan L 80m, P 100m'),
-                      Divider(thickness: 1, color: MyColors.softGrey, height: 24),
-                      _buildSectionTitle('Fasilitas kamar'),
-                      _buildFacilityItem(Icons.king_bed, 'Kasur'),
-                      _buildFacilityItem(Icons.table_bar, 'Meja'),
-                      _buildFacilityItem(Icons.chair, 'Kursi'),
-                      Divider(thickness: 1, color: MyColors.softGrey, height: 24),
-                      _buildSectionTitle('Fasilitas kamar mandi'),
-                      _buildFacilityItem(Icons.bathtub, 'Kamar mandi di luar'),
-                      _buildFacilityItem(Icons.local_parking, 'Parkir motor'),
-                      Divider(thickness: 1, color: MyColors.softGrey, height: 24),
-                      _buildSectionTitle('Fasilitas Umum'),
-                      _buildFacilityItem(Icons.local_parking, 'Parkir motor'),
+                      _buildSectionTitle(context, 'Fasilitas'),
+                      _buildFacilityItem(context, Icons.house, 'Ukuran bangunan L 80m, P 100m'),
+                      Divider(thickness: 1, color: MyColors.border(context), height: 24),
+                      _buildSectionTitle(context, 'Fasilitas kamar'),
+                      _buildFacilityItem(context, Icons.king_bed, 'Kasur'),
+                      _buildFacilityItem(context, Icons.table_bar, 'Meja'),
+                      _buildFacilityItem(context, Icons.chair, 'Kursi'),
+                      Divider(thickness: 1, color: MyColors.border(context), height: 24),
+                      _buildSectionTitle(context, 'Fasilitas kamar mandi'),
+                      _buildFacilityItem(context, Icons.bathtub, 'Kamar mandi di luar'),
+                      _buildFacilityItem(context, Icons.local_parking, 'Parkir motor'),
+                      Divider(thickness: 1, color: MyColors.border(context), height: 24),
+                      _buildSectionTitle(context, 'Fasilitas Umum'),
+                      _buildFacilityItem(context, Icons.local_parking, 'Parkir motor'),
                     ],
                   ),
                 ),
@@ -137,17 +131,17 @@ class InfoUnit extends StatelessWidget {
 
   Widget _buildFixedContinueButton(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10,),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          top: BorderSide(color: MyColors.softGrey, width: 1),
-        ),
+        color: MyColors.surface(context),
+        // border: Border(
+        //   top: BorderSide(color: MyColors.border(context), width: 1),
+        // ),
       ),
       child: SizedBox(
         width: double.infinity,
         child: BoxButton(
-          title:'Request Check-In',
+          title: 'Request Check-In',
           onTap: () {
             Navigator.push(
               context,
@@ -159,40 +153,42 @@ class InfoUnit extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionTitle(String title) {
+  Widget _buildSectionTitle(BuildContext context, String title) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Text(
         title,
         style: Subtitle1Style.copyWith(
-          color: MyColors.blackText,
           fontWeight: FontWeight.bold,
         ),
       ),
     );
   }
 
-  Widget _buildFacilityItem(IconData icon, String text) {
+  Widget _buildFacilityItem(BuildContext context, IconData icon, String text) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         children: [
-          Icon(icon, size: 20, color: MyColors.blackText),
+          Icon(icon, size: 20,),
           SizedBox(width: 8),
-          Text(text, style: body1Style.copyWith(color: MyColors.blackText,),),
+          Text(
+            text,
+            style: body1Style.copyWith(),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildInfoRow(String label, String value, {bool isBold = false}) {
+  Widget _buildInfoRow(BuildContext context, String label, String value) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: body1Style.copyWith(color: MyColors.blackText,),),
-          Text(value, style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),),
+          Text(label, style: body1Style.copyWith()),
+          Text(value, style: body1Style.copyWith(fontWeight: FontWeight.bold)),
         ],
       ),
     );

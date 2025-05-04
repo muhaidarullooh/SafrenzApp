@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safrenz/common/my_colors.dart';
 import 'package:safrenz/screens/payment/tenant/payment_info.dart';
+import 'package:safrenz/screens/request/detail_data_request.dart';
 
 import '../../../common/my_style.dart';
 import '../../components/buttons.dart';
@@ -11,13 +12,14 @@ class CardRequest extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        color: Colors.white,
+        color: MyColors.surface(context),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: MyColors.border(context)),
         ),
         elevation: 0,
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +38,6 @@ class CardRequest extends StatelessWidget {
                       Text(
                         'Jhondoe',
                         style: body2Style.copyWith(
-                          color: MyColors.blackText,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -44,7 +45,6 @@ class CardRequest extends StatelessWidget {
                       Text(
                         '08112092029',
                         style: captionStyle.copyWith(
-                          color: MyColors.blackSoftText,
                         ),
                       ),
                     ],
@@ -58,14 +58,13 @@ class CardRequest extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Posisi kiri untuk dots
                     SizedBox(
                       width: 36, // sejajar dengan avatar
                       child: VerticalDots(
                         count: 5,
-                        size: 3,
+                        size: 4,
                         spacing: 4,
-                        color: MyColors.grey,
+                        color: MyColors.border(context),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -92,7 +91,6 @@ class CardRequest extends StatelessWidget {
                         Text(
                           'Kosan Pak supri',
                           style: body2Style.copyWith(
-                            color: MyColors.blackText,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -100,7 +98,6 @@ class CardRequest extends StatelessWidget {
                         Text(
                           'Jln. Cilalawak Kadumekar, Maracang, Kec. Babakancikao, Kabupaten Purwakarta...',
                           style: captionStyle.copyWith(
-                            color: MyColors.blackSoftText,
                           ),
                           softWrap: true,
                           overflow: TextOverflow.ellipsis,
@@ -111,18 +108,18 @@ class CardRequest extends StatelessWidget {
                   ),
                 ],
               ),
-              Divider(thickness: 1, color: MyColors.softGrey, height: 36),
+              Divider(thickness: 1, color: MyColors.border(context),height: 36),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Tanggal request',
-                    style: body2Style.copyWith(color: MyColors.grey),
+                    style: body2Style.copyWith(),
                   ),
                   Text(
                     '12 Agustus 2023 (18:00)',
-                    style: body2Style.copyWith(color: MyColors.blackText),
+                    style: body2Style.copyWith(),
                   ),
 
                 ],
@@ -138,7 +135,7 @@ class CardRequest extends StatelessWidget {
                     title: 'Lihat data',
                     onTap: () {
                       Navigator.of(context, rootNavigator: true).push(
-                        MaterialPageRoute(builder: (context) => PaymentInfo()),
+                        MaterialPageRoute(builder: (context) => DetailDataRequest()),
                       );
                     },
                   ),

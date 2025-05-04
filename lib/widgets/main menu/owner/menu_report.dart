@@ -17,7 +17,7 @@ class MenuItem {
   final String subtitle;
   final IconData icon;
   final Color iconColor;
-  final Widget page; // Menambahkan page untuk navigasi
+  final Widget page;
 
   MenuItem({required this.title, required this.subtitle, required this.icon, required this.iconColor, required this.page});
 }
@@ -49,36 +49,30 @@ class _MenuReportState extends State<MenuReport> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Kotak utama
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Grid Menu Items
-                  GridView.builder(
-                    itemCount: menuItems.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, // 2 kolom
-                      crossAxisSpacing: 8,
-                      mainAxisSpacing: 8,
-                      childAspectRatio: 1,
-                    ),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return buildCard(menuItems[index]);
-                    },
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Grid Menu Items
+                GridView.builder(
+                  itemCount: menuItems.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // 2 kolom
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    childAspectRatio: 1,
                   ),
-                  const SizedBox(height: 16),
-                  // Card Informasi Unit
-                  buildInfoCard(),
-                ],
-              ),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return buildCard(menuItems[index]);
+                  },
+                ),
+                const SizedBox(height: 16),
+                // Card Informasi Unit
+                buildInfoCard(),
+              ],
             ),
           ),
         ],
@@ -89,19 +83,19 @@ class _MenuReportState extends State<MenuReport> {
   // Widget untuk Card menu
   Widget buildCard(MenuItem item) {
     return GestureDetector(
-      onTap: () {
-        // Navigasi ke halaman yang sesuai ketika card diklik
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => item.page),
-        );
-      },
+      // onTap: () {
+      //   // Navigasi ke halaman yang sesuai ketika card diklik
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => item.page),
+      //   );
+      // },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18),
-          side: BorderSide(color: MyColors.softGrey, width: 1.5),
+          side: BorderSide(color: MyColors.border(context)),
         ),
-        color: MyColors.backcolor,
+        color: MyColors.surface(context),
         elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -113,11 +107,11 @@ class _MenuReportState extends State<MenuReport> {
               const SizedBox(height: 8),
               Text(
                 item.title,
-                style: body2Style.copyWith(color: MyColors.blackText),
+                style: body2Style.copyWith(),
               ),
               Text(
                 item.subtitle,
-                style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold),
+                style: body1Style.copyWith(fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -131,9 +125,9 @@ class _MenuReportState extends State<MenuReport> {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18),
-        side: BorderSide(color: MyColors.softGrey, width: 1.5),
+        side: BorderSide(color: MyColors.border(context)),
       ),
-      color: MyColors.backcolor,
+      color: MyColors.surface(context),
       elevation: 0,
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -146,26 +140,26 @@ class _MenuReportState extends State<MenuReport> {
               children: [
                 Text(
                   'Unit tersedia',
-                  style: body2Style.copyWith(color: MyColors.blackText),
+                  style: body2Style.copyWith(),
                 ),
                 Text(
                   '10',
-                  style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold),
+                  style: body1Style.copyWith(fontWeight: FontWeight.bold),
                 ),
               ],
             ),
             // Progress Indicator
             SizedBox(
-              height: 36,
-              width: 36,
+              height: 48,
+              width: 48,
               child: Stack(
                 fit: StackFit.expand,
                 children: [
                   CircularProgressIndicator(
                     value: 0.4,
-                    backgroundColor: Colors.grey[300],
-                    color: Colors.black,
-                    strokeWidth: 4,
+                    backgroundColor: MyColors.border(context),
+                    color: MyColors.primary,
+                    strokeWidth: 6,
                   ),
                   const Center(child: Text("40%")),
                 ],

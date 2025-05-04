@@ -20,9 +20,9 @@ class _MenuPaymentState extends State<MenuPayment> {
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: MyColors.softGrey),
+          side: BorderSide(color: MyColors.border(context)),
         ),
-        color: MyColors.backcolor.withOpacity(0.9),
+        color: MyColors.surface(context),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: () {
@@ -54,7 +54,6 @@ class _MenuPaymentState extends State<MenuPayment> {
                               'Pembayaran',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black,
                                 fontSize: 16,
                               ),
                             ),
@@ -63,14 +62,13 @@ class _MenuPaymentState extends State<MenuPayment> {
                               'Bayar jadi lebih praktis',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.grey,
                               ),
                             ),
                           ],
                         ),
                       ],
                     ),
-                    Icon(Icons.chevron_right, color: MyColors.grey, size: 24),
+                    Icon(Icons.chevron_right, size: 24),
                   ],
                 ),
               ],

@@ -63,7 +63,7 @@ class HeaderProfileOwner extends StatelessWidget {
                     ),
                     child: Text(
                       'Free',
-                      style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                      style: body1Style.copyWith(color: Colors.black, fontWeight: FontWeight.bold,),
                     ),
                   ),
                 ],

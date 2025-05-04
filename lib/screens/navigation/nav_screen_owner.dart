@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../common/my_colors.dart';
 import 'screens_owner.dart';
 import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
@@ -15,7 +16,7 @@ class _NavScreenState extends State<NavScreenOwner> {
   final List _screens = [
     {"screen": const Home(), "title": "Home"},
     {"screen": const Request(), "title": "Request"},
-    {"screen": const Account(), "title": "Account"},
+    {"screen": const Account_Owner(), "title": "Account"},
   ];
 
   void _selectScreen(int index) {
@@ -34,8 +35,8 @@ class _NavScreenState extends State<NavScreenOwner> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         elevation: 10,
-        backgroundColor: Colors.white,
-        selectedItemColor: Color(0xFF0B0020),
+        backgroundColor: MyColors.nav(context),
+        selectedItemColor: MyColors.primary,
         currentIndex: _selectedScreenIndex,
         onTap: _selectScreen,
         items: const [

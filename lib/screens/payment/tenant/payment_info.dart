@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:safrenz/screens/payment/tenant/payment.dart';
 import 'package:safrenz/screens/payment/tenant/payment_qris.dart';
 
@@ -15,7 +15,6 @@ class PaymentInfo extends StatelessWidget {
         title: Text(
           'Info Pembayaran',
           style: TextStyle(
-              color: MyColors.blackText,
               fontSize: 16,
               fontWeight: FontWeight.bold),
         ),
@@ -26,31 +25,31 @@ class PaymentInfo extends StatelessWidget {
           },
         ),
         elevation: 0,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        backgroundColor: MyColors.background(context),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildPaymentInfoCard(),
+            _buildPaymentInfoCard(context),
             SizedBox(height: 8),
             _buildPaymentMethod(context),
             SizedBox(height: 8),
-            _buildPaymentSummary(),
+            _buildPaymentSummary(context),
           ],
         ),
       ),
       bottomNavigationBar: _buildFixedContinueButton(context),
-      backgroundColor: MyColors.backcolor,
+      backgroundColor: MyColors.background(context),
     );
   }
 
-  Widget _buildPaymentInfoCard() {
+  Widget _buildPaymentInfoCard(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: MyColors.border(context)),),
+      color: MyColors.surface(context),
       elevation: 0,
       child: Padding(
         padding: EdgeInsets.all(16),
@@ -77,10 +76,10 @@ class PaymentInfo extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: MyColors.backcolor,
+                color: MyColors.background(context),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: MyColors.softGrey,
+                  color: MyColors.border(context), // Warna border sesuai tema
                 ),
               ),
               child: Column(
@@ -100,8 +99,10 @@ class PaymentInfo extends StatelessWidget {
 
   Widget _buildPaymentMethod(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: MyColors.border(context)),),
+
+      color: MyColors.surface(context),
       elevation: 0,
       child: Padding(
         padding: EdgeInsets.all(16),
@@ -112,21 +113,13 @@ class PaymentInfo extends StatelessWidget {
             SizedBox(height: 8),
             Container(
               decoration: BoxDecoration(
-                color: MyColors.backcolor,
+                color: MyColors.background(context),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: MyColors.softGrey,
+                  color: MyColors.border(context), // Warna border sesuai tema
                 ),
               ),
               child: InkWell(
-                // onTap: () {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => Payment(),
-                //     ),
-                //   );
-                // },
                 child: Padding(
                   padding: EdgeInsets.all(10),
                   child: Row(
@@ -134,9 +127,9 @@ class PaymentInfo extends StatelessWidget {
                     children: [
                       Text(
                         'Pilih metode pembayaran',
-                        style: TextStyle(color: MyColors.grey),
+                        style: TextStyle(),
                       ),
-                      Icon(Icons.arrow_forward_ios, size: 16, color: MyColors.grey),
+                      Icon(Icons.arrow_forward_ios, size: 16,),
                     ],
                   ),
                 ),
@@ -148,10 +141,11 @@ class PaymentInfo extends StatelessWidget {
     );
   }
 
-  Widget _buildPaymentSummary() {
+  Widget _buildPaymentSummary(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: MyColors.border(context)),),
+      color: MyColors.surface(context),
       elevation: 0,
       child: Padding(
         padding: EdgeInsets.all(16),
@@ -162,7 +156,7 @@ class PaymentInfo extends StatelessWidget {
             SizedBox(height: 8),
             _buildInfoRow('Harga kos /bulan', 'Rp1.000.000'),
             _buildInfoRow('Biaya layanan', 'Rp1.000'),
-            Divider(thickness: 1, color: MyColors.softGrey, height: 20),
+            Divider(thickness: 1, color: MyColors.border(context), height: 20), // Warna divider sesuai tema
             _buildInfoRow('Total pembayaran', 'Rp1.001.000', isBold: true),
           ],
         ),
@@ -172,17 +166,15 @@ class PaymentInfo extends StatelessWidget {
 
   Widget _buildFixedContinueButton(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10,),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          top: BorderSide(color: MyColors.softGrey, width: 1),
-        ),
+        color: MyColors.surface(context),
+
       ),
       child: SizedBox(
         width: double.infinity,
         child: BoxButton(
-          title:'Lanjutkan',
+          title: 'Lanjutkan',
           onTap: () {
             Navigator.push(
               context,

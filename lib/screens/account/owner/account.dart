@@ -1,67 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:safrenz/common/my_colors.dart';
-import 'package:safrenz/widgets/header/owner/header_home_owner.dart';
-import 'package:safrenz/widgets/header/tenant/header_home_tenant.dart';
-import 'package:safrenz/widgets/main%20menu/tenant/menu_opendoor.dart';
-import 'package:safrenz/widgets/main%20menu/tenant/menu_logactivity.dart';
-import 'package:safrenz/widgets/main%20menu/tenant/menu_fitur_lainnya.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:safrenz/widgets/main%20menu/owner/menu_manage.dart';
-import 'package:safrenz/widgets/main%20menu/owner/menu_report.dart';
+import 'package:safrenz/widgets/account/owner/header_account.dart';
+import 'package:safrenz/widgets/account/tenant/menu_account.dart';
 
-import '../../providers/theme_provider.dart';
-import '../../widgets/account/tenant/header_account.dart';
-import '../../widgets/s_r_icon_icons.dart';
+import '../../../providers/theme_provider.dart';
+import '../../../widgets/account/owner/menu_account.dart';
+import '../../../widgets/account/tenant/header_account.dart';
+import '../../../widgets/account/tenant/header_unit_account.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Account_Owner extends StatefulWidget {
+  const Account_Owner({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Account_Owner> createState() => _Account_OwnerState();
 }
 
-class _HomeState extends State<Home> {
+class _Account_OwnerState extends State<Account_Owner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: CustomNavigationBar(),
-      // bottomNavigationBar: BottomNavigationBar(items: []),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: MyColors.background(context),
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0), // Padding kiri & kanan
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween, // Elemen di sisi kanan & kiri
+        title: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SvgPicture.asset('assets/images/logosafrenz.svg', width: 28),
-                  const SizedBox(width: 4),
-                  const Text(
-                    'Safrenz',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                  ),
-                ],
-              ),
-
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      print("Icon Comment diklik!");
-                    },
-                    child: Icon(SRIcon.message, size: 28),
-                  ),
-                  SizedBox(width: 16), // Spasi antara ikon
-                  GestureDetector(
-                    onTap: () {
-                      print("Icon Notification diklik!");
-                    },
-                    child: Icon(SRIcon.notification, size: 28),
+                  Row(
+                    children: [
+                      Text(
+                        'Account',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -69,28 +49,39 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-
-
       // ===================== BODY ========================== //
       backgroundColor: MyColors.background(context),
 
       body: ListView(
-        physics: const ClampingScrollPhysics(),
+        physics: ClampingScrollPhysics(),
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const HeaderHomeOwner(),
-              const SizedBox(
-                height: 16,
+          Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: MyColors.surface(context),
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(color: MyColors.border(context)),
+                ),
+                width: double.infinity,
+                child: const Column(
+                  children: [
+                    HeaderAccountOwner(),
+                    const SizedBox(height: 24),
+                  ],
+                ),
+              )
               ),
-              const MenuReport(),
-
-              const MenuManage(),
+              // SizedBox(
+              //   height: 24,
+              // ),
+              MenuAccountOwner(),
               const SizedBox(height: 24),
-              const Center(child: ThemeSwitcher()),
+              const Center(child: ThemeSwitcheraccount()),
               const SizedBox(height: 24),
-
             ],
           ),
         ],
@@ -98,9 +89,8 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-class ThemeSwitcher extends StatelessWidget {
-  const ThemeSwitcher({super.key});
+class ThemeSwitcheraccount extends StatelessWidget {
+  const ThemeSwitcheraccount({super.key});
 
   @override
   Widget build(BuildContext context) {

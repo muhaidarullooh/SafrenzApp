@@ -18,13 +18,12 @@ class _CheckInState extends State<CheckIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.white,
+      backgroundColor: MyColors.background(context),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: MyColors.background(context),
         leading: const BackButton(
-          color: Colors.black,
         ),
       ),
       body: Column(
@@ -34,27 +33,14 @@ class _CheckInState extends State<CheckIn> {
             Container(
               padding: const EdgeInsets.all(16),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              SizedBox(
-                                height: 200,
-                                width: 200,
-                                child: Image.asset(
-                                    'assets/images/imagerequest.png'),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                  SizedBox(
+                    height: 200,
+                    width: 200,
+                    child: Image.asset(
+                        'assets/images/imagerequest.png'),
                   ),
                   const SizedBox(
                     height: 24,
@@ -64,7 +50,7 @@ class _CheckInState extends State<CheckIn> {
                     children: [
                       Text(
                         'Scan QR Code atau masukkan kode unit dari pemilik untuk check-In',
-                        style: body1Style.copyWith(color: MyColors.blackText),
+                        style: body1Style.copyWith(),
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -101,14 +87,14 @@ class _CheckInState extends State<CheckIn> {
                 Container(
                   height: 1,
                   width: 140,
-                  color: MyColors.softGrey,
+                  color: MyColors.border(context)
                 ),
                 const SizedBox(
                   width: 10,
                 ),
                 Text(
                   'Atau',
-                  style: body1Style.copyWith(color: MyColors.blackText),
+                  style: body1Style.copyWith(),
                 ),
                 const SizedBox(
                   width: 10,
@@ -116,7 +102,7 @@ class _CheckInState extends State<CheckIn> {
                 Container(
                   height: 1,
                   width: 140,
-                  color: MyColors.softGrey,
+                  color: MyColors.border(context)
                 ),
               ],
             ),
@@ -144,7 +130,7 @@ class _CheckInState extends State<CheckIn> {
               },
               child: Text(
                 'Ke Halaman Beranda',
-                style: body1Style.copyWith(color: MyColors.blackText),
+                style: body1Style.copyWith(),
               ),
             ),
           ],

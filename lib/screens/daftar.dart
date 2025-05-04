@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:safrenz/screens/check_in.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../common/my_colors.dart';
 import '../widgets/components/buttons.dart';
 import '../widgets/components/input_field.dart';
 
@@ -16,17 +17,15 @@ class _daftarState extends State<daftar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: MyColors.background(context),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: MyColors.background(context),
         leading: BackButton(
-          color: Colors.black,
         ),
         title: Text(
           'Daftar',
           style: TextStyle(
-              color: Color.fromARGB(255, 0, 0, 0),
               fontSize: 18,
               fontWeight: FontWeight.bold),
         ),
@@ -64,8 +63,7 @@ class _daftarState extends State<daftar> {
       ]),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 255, 255, 255),
-          borderRadius: BorderRadius.circular(16),
+          color: MyColors.surface(context),
         ),
         padding: EdgeInsets.all(16.0),
         child: BoxButton(

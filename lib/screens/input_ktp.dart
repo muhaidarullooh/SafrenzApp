@@ -32,7 +32,7 @@ class _InputKtpState extends State<InputKtp> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(0)),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: MyColors.background(context),
       builder: (context) => Padding(
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -47,14 +47,13 @@ class _InputKtpState extends State<InputKtp> {
                 Text(
                   'Panduan Foto KTP',
                   style: Subtitle1Style.copyWith(
-                    color: MyColors.blackText,
+                    color: MyColors.blackText(context),
                     fontWeight: FontWeight.bold,),
                 ),
                 SizedBox(height: 12),
                 Text(
                   'Siapkan kartu KTP Anda dan foto dengan ketentuan seperti di bawah ini:',
-                  style: body2Style.copyWith(
-                    color: MyColors.blackSoftText,),
+                  style: body2Style.copyWith(),
                 ),
                 SizedBox(height: 16),
                 ClipRRect(
@@ -66,11 +65,11 @@ class _InputKtpState extends State<InputKtp> {
                   ),
                 ),
                 SizedBox(height: 8),
-                Center(child: Text('Contoh foto kartu KTP yang benar', style: captionStyle.copyWith(color: MyColors.blackSoftText,),)),
+                Center(child: Text('Contoh foto kartu KTP yang benar', style: captionStyle.copyWith(),)),
                 SizedBox(height: 16),
-                Text('1. Foto dan isi kartu KTP jelas (tidak buram, tidak blur dan dapat terbaca)',style: body2Style.copyWith(color: MyColors.blackSoftText,)),
-                Text('2. Tidak boleh menggunakan fotokopi kartu KTP',style: body2Style.copyWith(color: MyColors.blackSoftText,)),
-                Text('3. Kartu KTP masih dalam masa berlaku',style: body2Style.copyWith(color: MyColors.blackSoftText,)),
+                Text('1. Foto dan isi kartu KTP jelas (tidak buram, tidak blur dan dapat terbaca)',style: body2Style.copyWith()),
+                Text('2. Tidak boleh menggunakan fotokopi kartu KTP',style: body2Style.copyWith()),
+                Text('3. Kartu KTP masih dalam masa berlaku',style: body2Style.copyWith()),
                 SizedBox(height: 24),
                 BoxButton(
                   title:'Lanjutkan',
@@ -93,7 +92,7 @@ class _InputKtpState extends State<InputKtp> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(0)),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: MyColors.background(context),
       builder: (context) {
         return SafeArea(
           child: Wrap(
@@ -135,11 +134,11 @@ class _InputKtpState extends State<InputKtp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.black),
-        backgroundColor: MyColors.white,
+        leading: BackButton(),
+        backgroundColor: MyColors.background(context),
         elevation: 0,
       ),
-      backgroundColor: MyColors.white,
+      backgroundColor: MyColors.background(context),
       body: Stack(children: <Widget>[
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -154,7 +153,6 @@ class _InputKtpState extends State<InputKtp> {
                     'Anda diharuskan untuk\nupload KTP sebagai data penyewa',
                     textAlign: TextAlign.center,
                     style: body1Style.copyWith(
-                      color: MyColors.blackText,
                       fontWeight: FontWeight.bold,)
                   ),
                   SizedBox(height: 16),
@@ -170,7 +168,8 @@ class _InputKtpState extends State<InputKtp> {
                       width: double.infinity,
                       height: 200,
                       decoration: BoxDecoration(
-                        border: Border.all(color: MyColors.softGrey,),
+                        color: MyColors.surface(context),
+                        border: Border.all(color: MyColors.border(context)),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: _ktpImage != null
@@ -178,11 +177,9 @@ class _InputKtpState extends State<InputKtp> {
                           : Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(SRIcon.camera, size: 40, color: MyColors.grey,),
+                          Icon(SRIcon.camera, size: 40,),
                           SizedBox(height: 10),
                           Text('Upload foto KTP',style: body1Style.copyWith(
-                            color: MyColors.grey,
-                            fontWeight: FontWeight.bold,
                           ),),
                         ],
                       ),
@@ -198,8 +195,7 @@ class _InputKtpState extends State<InputKtp> {
       ]),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 255, 255, 255),
-          borderRadius: BorderRadius.circular(16),
+          color: MyColors.surface(context),
         ),
         padding: EdgeInsets.all(16.0),
         child: BoxButton(

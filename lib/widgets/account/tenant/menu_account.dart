@@ -3,7 +3,7 @@ import 'package:safrenz/screens/daftar.dart';
 import 'package:safrenz/screens/kode_pin.dart';
 import 'package:safrenz/widgets/s_r_icon_icons.dart';
 
-import '../common/my_colors.dart';
+import '../../../common/my_colors.dart';
 
 class MenuAccount extends StatefulWidget {
   const MenuAccount({super.key});
@@ -30,10 +30,10 @@ class _MenuAccountState extends State<MenuAccount> {
       },
     },
     {'icon': SRIcon.syaratketentuan, 'title': 'Syarat & Ketentuan', 'onTap': (BuildContext context) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => daftar()),
-      );
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => daftar()),
+      // );
     },
     },
     {'icon': SRIcon.clipboard_text, 'title': 'Saran untuk pengembang', 'onTap': () {}},
@@ -48,8 +48,9 @@ class _MenuAccountState extends State<MenuAccount> {
       color: Colors.transparent,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: MyColors.surface(context),
           borderRadius: BorderRadius.circular(24),
+          border: Border.all(color: MyColors.border(context)),
         ),
         child: ListView.separated(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
@@ -57,7 +58,7 @@ class _MenuAccountState extends State<MenuAccount> {
           physics: const NeverScrollableScrollPhysics(),
           itemCount: menuItems.length,
           separatorBuilder: (context, index) => Divider(
-            color: MyColors.softGrey,
+            color: MyColors.border(context),
             thickness: 1,
             indent: 16,
             endIndent: 16,
@@ -65,12 +66,12 @@ class _MenuAccountState extends State<MenuAccount> {
           itemBuilder: (context, index) {
             final item = menuItems[index];
             return ListTile(
-              leading: Icon(item['icon'], size: 24, color: Colors.black54),
+              leading: Icon(item['icon'], size: 24,),
               title: Text(
                 item['title'],
-                style: const TextStyle(fontSize: 16, color: Colors.black54),
+                style: const TextStyle(fontSize: 16,),
               ),
-              trailing: Icon(Icons.chevron_right, color: MyColors.grey, size: 24),
+              trailing: Icon(Icons.chevron_right, size: 24),
               onTap: () => item['onTap'](context),
             );
           },

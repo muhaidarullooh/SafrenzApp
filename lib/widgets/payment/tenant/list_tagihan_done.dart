@@ -8,19 +8,16 @@ void main() {
 }
 
 class ListTagihanDone extends StatelessWidget {
+  const ListTagihanDone({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: MyColors.backcolor,
-        body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return CardTagihanDone();
-          },
-        ),
-      ),
+    return ListView.builder(
+      itemCount: 5,
+      itemBuilder: (context, index) {
+        return CardTagihanDone();
+      },
     );
   }
 }
+

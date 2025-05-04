@@ -29,12 +29,12 @@ class _HdrnotunitState extends State<Hdrnotunit> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: MyColors.surface.withOpacity(0.9),
+              color: MyColors.surface(context).withOpacity(0.9),
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(24),
                 topLeft: Radius.circular(24),),
               border: Border.all(
-                color: MyColors.surface2,
+                color: MyColors.surface(context),
               ),
 
               ),

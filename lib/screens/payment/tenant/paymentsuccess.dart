@@ -41,10 +41,10 @@ class _PaymentsuccessState extends State<Paymentsuccess> {
                   // height: 150,
                   // width: 340,
                   decoration: BoxDecoration(
-                    color: MyColors.white,
+                    color: MyColors.surface(context),
                     borderRadius: BorderRadius.circular(24),
                     border: Border.all(
-                      color: MyColors.softGrey,
+                      color: MyColors.border(context)
                     ),
                   ),
                   child: Padding(
@@ -68,7 +68,6 @@ class _PaymentsuccessState extends State<Paymentsuccess> {
                             textScaleFactor: 1.0,
                             'Pembayaran berhasil',
                             style: TextStyle(
-                                color: MyColors.blackText,
                                 fontWeight: FontWeight.bold, fontSize: 24),
                           ),
                         ),
@@ -79,7 +78,6 @@ class _PaymentsuccessState extends State<Paymentsuccess> {
                             textAlign: TextAlign.center,
                             'Total Pembayaran',
                             style: TextStyle(
-                                color: MyColors.blackSoftText,
                                 fontWeight: FontWeight.bold, fontSize: 14),
                           ),
                         ),
@@ -90,12 +88,11 @@ class _PaymentsuccessState extends State<Paymentsuccess> {
                             textAlign: TextAlign.center,
                             'Rp1.001.00',
                             style: TextStyle(
-                                color: MyColors.blackText,
                                 fontWeight: FontWeight.bold, fontSize: 24),
                           ),
                         ),
 
-                        Divider(thickness: 1, color: MyColors.softGrey, height: 20),
+                        Divider(thickness: 1, color: MyColors.border(context), height: 20),
 
 
                         Padding(
@@ -107,7 +104,7 @@ class _PaymentsuccessState extends State<Paymentsuccess> {
                               SizedBox(height: 8),
                               _buildInfoRow('Harga kos /bulan', 'Rp1.000.000'),
                               _buildInfoRow('Biaya layanan', 'Rp1.000'),
-                              Divider(thickness: 1, color: MyColors.softGrey, height: 20),
+                              Divider(thickness: 1, color: MyColors.border(context),height: 20),
                               _buildInfoRow('Total pembayaran', 'Rp1.001.000', isBold: true),
                             ],
                           ),

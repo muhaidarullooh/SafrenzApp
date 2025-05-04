@@ -44,10 +44,10 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
   Widget build(BuildContext context) {
     double progress = _seconds / 30;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: MyColors.background(context),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: MyColors.background(context),
         leading: const BackButton(color: Colors.black),
       ),
       body: Padding(
@@ -56,15 +56,9 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: MyColors.white,
+                color: MyColors.surface(context),
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: MyColors.softGrey),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/imgback.png"),
-                  fit: BoxFit.cover,
-                  opacity: 200,
-                  alignment: Alignment.topCenter,
-                ),
+                border: Border.all(color: MyColors.border(context)),
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -75,9 +69,9 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
 
                     Container(
                       decoration: BoxDecoration(
-                        color: MyColors.white,
+                        color: MyColors.background(context),
                         borderRadius: BorderRadius.circular(24),
-                        border: Border.all(color: MyColors.softGrey),
+                        border: Border.all(color: MyColors.border(context)),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -93,9 +87,8 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
                                   height: 60,
                                   width: 60,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: MyColors.surface(context),
                                     borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(color: MyColors.softGrey),
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(10),
@@ -137,12 +130,11 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
                                   children: [
                                     Text(
                                       'Pintu Kamar',
-                                      style: body1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                                      style: body1Style.copyWith(fontWeight: FontWeight.bold,),
                                     ),
                                     Text(
                                         '3 h ago',
                                         style: captionStyle.copyWith(
-                                          color: MyColors.blackText,
                                         )
                                     ),
                                     const SizedBox(height: 10),
@@ -176,7 +168,7 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
                             child: CircularProgressIndicator(
                               value: progress,
                               strokeWidth: 3,
-                              backgroundColor: MyColors.grey,
+                              backgroundColor: MyColors.border(context),
                               valueColor: AlwaysStoppedAnimation<Color>(MyColors.primary),
                             ),
                           ),
@@ -191,7 +183,7 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
                     Text(
                       'Konfirmasi Kehadiran',
                       textAlign: TextAlign.center,
-                      style: Subtitle1Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                      style: Subtitle1Style.copyWith(color: MyColors.blackText(context), fontWeight: FontWeight.bold,),
                     ),
                     const SizedBox(height: 16),
                     Row(
@@ -199,14 +191,14 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
                       children: [
                         Text(
                           'Tekan',
-                          style: body2Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                          style: body2Style.copyWith(color: MyColors.blackText(context), fontWeight: FontWeight.bold,),
                         ),
                         const SizedBox(width: 4),
                         Icon(SRIcon.notification, color: MyColors.yellow, size: 20),
                         const SizedBox(width: 4),
                         Text(
                           'Pada Smartlock',
-                          style: body2Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                          style: body2Style.copyWith(color: MyColors.blackText(context), fontWeight: FontWeight.bold,),
                         ),
                       ],
                     ),
@@ -216,7 +208,7 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
                       children: [
                         Text(
                           'Tekan',
-                          style: body2Style.copyWith(color: MyColors.blackText,),
+                          style: body2Style.copyWith(color: MyColors.blackText(context),),
                         ),
                         const SizedBox(width: 4),
                         Text(
@@ -226,10 +218,10 @@ class _ProcessAksesLockState extends State<ProcessAksesLock> {
                         const SizedBox(width: 4),
                         Text(
                           'jika tidak ada',
-                          style: body2Style.copyWith(color: MyColors.blackText,),
+                          style: body2Style.copyWith(color: MyColors.blackText(context),),
                         ),
                         const SizedBox(width: 4),
-                        Icon(SRIcon.notification, color: MyColors.grey, size: 20),
+                        Icon(SRIcon.notification,size: 20),
                       ],
                     ),
                   ],

@@ -30,13 +30,10 @@ class _HeaderAddAksesState extends State<HeaderAddAkses> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: MyColors.surface.withOpacity(0.5),
+                color: MyColors.primary.withOpacity(0.9),
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(24),
                   topLeft: Radius.circular(24),
-                ),
-                border: Border.all(
-                  color: MyColors.surface2,
                 ),
               ),
               child: Padding(
@@ -62,10 +59,7 @@ class _HeaderAddAksesState extends State<HeaderAddAkses> {
                         ),
                       ],
                     ),
-                    SvgPicture.asset(
-                      'assets/images/iconarrowright.svg',
-                      height: 24, // Sesuaikan ukuran jika perlu
-                    ),
+                    Icon(Icons.chevron_right, color: MyColors.white, size: 24),
                   ],
                 ),
               ),

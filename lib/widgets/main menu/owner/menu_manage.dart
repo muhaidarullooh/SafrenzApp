@@ -48,36 +48,30 @@ class _MenuManageState extends State<MenuManage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Kotak utama
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Grid Menu Items
-                  GridView.builder(
-                    itemCount: menuItems.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3, // 3 kolom
-                      crossAxisSpacing: 8,
-                      mainAxisSpacing: 8,
-                      childAspectRatio: 1,
-                    ),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return buildCard(menuItems[index]);
-                    },
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Grid Menu Items
+                GridView.builder(
+                  itemCount: menuItems.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3, // 3 kolom
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    childAspectRatio: 1,
                   ),
-                  const SizedBox(height: 16),
-                  // Card Informasi Unit
-                  buildInfoCard(),
-                ],
-              ),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return buildCard(menuItems[index]);
+                  },
+                ),
+                const SizedBox(height: 16),
+                // Card Informasi Unit
+                buildInfoCard(),
+              ],
             ),
           ),
         ],
@@ -88,19 +82,19 @@ class _MenuManageState extends State<MenuManage> {
   // Widget untuk Card menu
   Widget buildCard(MenuItem item) {
     return GestureDetector(
-      onTap: () {
-        // Navigasi ke halaman yang sesuai ketika card diklik
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => item.page),
-        );
-      },
+      // onTap: () {
+      //   // Navigasi ke halaman yang sesuai ketika card diklik
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => item.page),
+      //   );
+      // },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18),
-          side: BorderSide(color: MyColors.softGrey, width: 1.5),
+          side: BorderSide(color: MyColors.border(context)),
         ),
-        color: MyColors.backcolor,
+        color: MyColors.surface(context),
         elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -111,7 +105,7 @@ class _MenuManageState extends State<MenuManage> {
               const SizedBox(height: 8),
               Text(
                 item.title,
-                style: captionStyle.copyWith(color: MyColors.blackText),
+                style: captionStyle.copyWith(),
               ),
             ],
           ),
@@ -125,9 +119,9 @@ class _MenuManageState extends State<MenuManage> {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18),
-        side: BorderSide(color: MyColors.softGrey, width: 1.5),
+        side: BorderSide(color: MyColors.border(context)),
       ),
-      color: MyColors.backcolor,
+      color: MyColors.surface(context),
       elevation: 0,
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -139,7 +133,7 @@ class _MenuManageState extends State<MenuManage> {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundColor: Colors.white,
+                      backgroundColor: MyColors.background(context),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
@@ -156,14 +150,14 @@ class _MenuManageState extends State<MenuManage> {
                       children: [
                         Text(
                           'Pembelian Smartlock',
-                          style: body2Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold,),
+                          style: body2Style.copyWith(fontWeight: FontWeight.bold,),
                         ),
                         const SizedBox(
                           height: 3,
                         ),
                         Text(
                           'info selengkapnya',
-                          style: captionStyle.copyWith(color: MyColors.blackText),
+                          style: captionStyle.copyWith(),
                         ),
                       ],
                     ),
@@ -171,11 +165,7 @@ class _MenuManageState extends State<MenuManage> {
                 ),
               ],
             ),
-            // Informasi Unit
-            SvgPicture.asset(
-              'assets/images/iconarrowright.svg',
-              height: 24, // Sesuaikan ukuran jika perlu
-            ),
+            Icon(Icons.chevron_right, color: MyColors.white, size: 24),
           ],
         ),
       ),

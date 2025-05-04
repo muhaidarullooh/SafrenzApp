@@ -20,39 +20,17 @@ class _MenuFiturLainnyaState extends State<MenuFiturLainnya> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
-
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(24),
-              // boxShadow: const [
-              //   BoxShadow(color: Colors.grey, blurRadius: 0.3),
-              // ],
-            ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 16,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'FItur Lainnya',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  MenuPayment(),
-
-                ],
-              ),
-            ),
+          Text(
+            'FItur Lainnya',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 18),
           ),
+          MenuPayment(),
+
         ],
       ),
     );

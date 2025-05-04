@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:safrenz/widgets/main_menu_penyewa.dart';
 
+import '../common/my_colors.dart';
 import '../widgets/main_menu_pemilik.dart';
 
 class daftarsebagai extends StatefulWidget {
@@ -15,12 +16,11 @@ class _daftarsebagaiState extends State<daftarsebagai> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: MyColors.background(context),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: MyColors.background(context),
         leading: BackButton(
-          color: Colors.black,
         ),
       ),
       body: Stack(children: <Widget>[

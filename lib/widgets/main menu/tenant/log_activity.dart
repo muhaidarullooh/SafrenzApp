@@ -29,11 +29,9 @@ class _LogActivityState extends State<LogActivity> {
         },
         child: Container(
           decoration: BoxDecoration(
-            color: MyColors.backcolor,
+            color: MyColors.surface(context),
             borderRadius: BorderRadius.circular(18),
-            border: Border.all(
-              color: MyColors.softGrey,
-            ),
+            border: Border.all(color: MyColors.border(context)),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(
@@ -49,11 +47,8 @@ class _LogActivityState extends State<LogActivity> {
                   height: 48,
                   width: 48,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: MyColors.background(context),
                     borderRadius: BorderRadius.circular(50),
-                    border: Border.all(
-                      color: const Color(0xFFEDEDED),
-                    ),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
@@ -69,15 +64,15 @@ class _LogActivityState extends State<LogActivity> {
                   children: [
                     Text(
                       'Jhondoe',
-                      style: body2Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold),
+                      style: body2Style.copyWith(color: MyColors.blackText(context), fontWeight: FontWeight.bold),
                     ),
                     Text(
                       '18:00',
-                      style: body2Style.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold),
+                      style: body2Style.copyWith(color: MyColors.blackText(context), fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'Pintu depan',
-                      style: captionStyle.copyWith(color: MyColors.blackText, fontWeight: FontWeight.bold),
+                      style: captionStyle.copyWith(color: MyColors.blackText(context), fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'Berhasil',

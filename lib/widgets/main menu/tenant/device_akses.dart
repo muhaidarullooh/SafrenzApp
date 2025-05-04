@@ -34,12 +34,12 @@ class DeviceAkses extends StatelessWidget {
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
-            side: BorderSide(color: MyColors.softGrey, width: 1.5),
+            side: BorderSide(color: MyColors.border(context)),
           ),
-          color: MyColors.backcolor,
+          color: MyColors.surface(context),
           elevation: 0,
           child: Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(14),
             child: Center(  // Menambahkan Center di sini untuk men-center semua elemen
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center, // Menambahkan alignmen vertikal ke tengah
@@ -51,7 +51,7 @@ class DeviceAkses extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: screenWidth * 0.08,
-                        backgroundColor: Colors.white,
+                        backgroundColor: MyColors.background(context),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
@@ -66,13 +66,13 @@ class DeviceAkses extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(
-                              color: MyColors.green,
+                              color: MyColors.softGreen,
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            child: const Text(
-                              'Aktif',
+                            child: Text(
+                              'ON',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: MyColors.green,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 12,
                               ),
@@ -100,7 +100,7 @@ class DeviceAkses extends StatelessWidget {
                           Text(
                             '3 h ago',
                               style: captionStyle.copyWith(
-                                color: MyColors.blackText,)
+                                color: MyColors.blackText(context),)
                           ),
                           const SizedBox(height: 8),
                           Row(

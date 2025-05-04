@@ -22,58 +22,37 @@ class _MenuLogactivityState extends State<MenuLogactivity> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(24),
-              // boxShadow: const [
-              //   BoxShadow(color: Colors.grey, blurRadius: 0.3),
-              // ],
-            ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 16,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    textScaleFactor: 1.0,
-                    'Log Activity',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  Column(
-                    children: [
-
-                      SingleChildScrollView(
-
-                        scrollDirection: Axis.horizontal,
-
-                        child: Row(
-
-                          children: [
-
-                            LogActivity(),
-                            LogActivity(),
-                            LogActivity(),
-                            LogActivity(),
-
-                          ],
-
-                        ),
-
-                      ),
-
-                    ],
-                  )
-
-                ],
-              ),
-            ),
+          Text(
+            textScaleFactor: 1.0,
+            'Log Activity',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 18),
           ),
+          Column(
+            children: [
+
+              SingleChildScrollView(
+
+                scrollDirection: Axis.horizontal,
+
+                child: Row(
+
+                  children: [
+
+                    LogActivity(),
+                    LogActivity(),
+                    LogActivity(),
+                    LogActivity(),
+
+                  ],
+
+                ),
+
+              ),
+
+            ],
+          )
+
         ],
       ),
     );

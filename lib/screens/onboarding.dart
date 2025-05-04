@@ -21,32 +21,21 @@ class _onboardingState extends State<onboarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.white,
+      backgroundColor: MyColors.background(context),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: MyColors.white,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 100,
-                        child: SvgPicture.asset('assets/images/logosafrenz.svg'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+        backgroundColor: MyColors.background(context),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset('assets/images/logosafrenz.svg', width: 28),
+            const SizedBox(width: 4),
+            const Text(
+              'Safrenz',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            ),
+          ],
         ),
       ),
       body: Column(
@@ -86,7 +75,7 @@ class _onboardingState extends State<onboarding> {
                     children: [
                       Text(
                         'Kelola unit anda sesuai dengan kebutuhan dengan mudah',
-                        style: body1Style.copyWith(color: MyColors.blackText),
+                        style: body1Style.copyWith(color: MyColors.blackText(context)),
                         textAlign: TextAlign.center,
                       ),
                     ],
